@@ -9,7 +9,7 @@
 #include <stdlib.h>    // Provides EXIT_SUCCESS
 #include "intarray.h"  // Provides histogram function
 
-int main() 
+int main()
 {
     int i;     // for loop control variable
     int a[64]; // Array that contains values of a sin wave
@@ -23,4 +23,3 @@ int main()
 
     return 0;
 }
-
