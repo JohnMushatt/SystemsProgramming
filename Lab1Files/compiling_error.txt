@@ -1,4 +1,0 @@
-/tmp/cc4jklBe.o: In function `main':
-sinewave.c:(.text+0x3b): undefined reference to `sin'
-sinewave.c:(.text+0x9f): undefined reference to `histogram'
-collect2: error: ld returned 1 exit status
