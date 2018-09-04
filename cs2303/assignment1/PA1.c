@@ -1,64 +1,71 @@
 #include <stdio.h>
 #include <math.h>
+
 int isLeapYear();
+
 int main() {
   int year,month; //Month is encoded as 0-11, where 0 is January
   //and day is encoded as 0-6, where 0 is Monday
 
-  printf("\t\t\t\tMONTHLY CALENDAR\n\nPlease enter a year for this calendar: ");
+  printf("Please enter a year for this calendar: ");
   scanf("%d",&year);
-
+  printCalendar(year,5);
   return 0;
 }
 int getFirstDayOfMonth(int year, int month) {
   return 0;
 }
 void printCalendar(int year, int day) {
-
+  int new_day= day;
+  printf("\n  ***\t     CALENDER For year %d\t***\n\n", year);
+  for(int current_month=0; current_month<12;current_month++){
+    new_day=printMonth(year,current_month,new_day);
+    printf("\n\n");
+  }
 
 }
-
+/*Print month name and return number of days in month*/
 int printMonthName(int year, int month) {
   switch(month) {
 
     case 0:
-      printf("January\n");
+      printf("January\t%d\n",year);
       return 31;
     case 1:
-      printf("February\n");
+      printf("February\t%d\n",year);
       if(isLeapYear(year)) {
         return 29;
       }
       return 28;
     case 2:
-      printf("March\n");
+      printf("March\t%d\n",year);
       return 31;
     case 3:
-      printf("April\n");
+      printf("April\t%d\n",year);
       return 30;
     case 4:
-      printf("May\n");
+      printf("May\t%d\n",year);
       return 31;
     case 5:
-      printf("June\n");
+      printf("June\t%d\n",year);
       return 30;
     case 6:
-      printf("July\n");
+      printf("July\t%d\n",year);
       return 31;
     case 7:
-      printf("August\n");
+      printf("August\t%d\n",year);
       return 31;
     case 8:
-      printf("September\n");
+      printf("September\t%d\n",year);
       return 30;
     case 9:
-      printf("October\n");
+      printf("October\t%d\n",year);
       return 31;
     case 10:
-      printf("November\n");
+      printf("November\t%d\n",year);
       return 30;
     case 11:
-      printf("December\n");
+      printf("December\t%d\n",year);
       return 31;
   }
   return 0;
@@ -69,47 +76,87 @@ int printMonthName(int year, int month) {
 //Prints out month
 /* Mon Tue Wed Thr Fri Sat Sun
     0   1   2   3   4   5   6
-  num_days = the number of days in the Month
-
-
-
-    */
+  num_days = the number of days in the Month*/
 int printMonth(int year, int month, int day) {
   int num_days = printMonthName(year,month); //# of days in month
-  int current_day = day; //0-6
+  int current_day=day;
+  int current_date = 1; //0-31, though the displayed day will be (current_day+1)
   int days_remaining = num_days;
-  int extra_days = num_days -(num_days / 7);
 
-  //Print out each day w/o a newline untile sunday is reached, then add a new line
-  while(days_remaining>=0) {
-    if(current_day==7) {
-      current_day=0;
-    }
-    //Days 0-5 (Mon-Thr)
-    else if(current_day<6) {
+  printf("Mon\tTue\tWed\tThu\tFri\tSat\tSun\n");
+
+  //While we are still building the month
+  while(current_date<num_days+1) {
+
+    for(current_day;current_day<7;current_day++) {
+      if((current_date==1) && (current_day!=0)) {
+
+        //Add correct spacing NOT WORKING RIGHT NOW
+        for(int spaces = day;spaces>0;--spaces) {
+          printf("\t");
+        }
+      }
       if(current_day==0) {
-        printf("Monday\t");
+        printf("%2d\t", current_date);
+
       }
-      else if(current_day==1) {
-        printf("Tuesday\t");
+      else if(current_day!=6 && current_date<= num_days) {
+        printf("%2d\t", current_date);
       }
-      else if(current_day==2) {
-        printf("Wednesday\t");
+      else if(current_date< num_days){
+        printf("%2d\n", current_date);
       }
-      else if(current_day==3) {
-        printf("Thursday\t");
+      else if(current_date==num_days+1){
+        if(current_day==6)
+        {
+          return 0;
+        }
+        else
+          return current_day+1;
       }
-      else if(current_day==4) {
-        printf("Friday\t");
+      current_date++;
+      days_remaining--;
       }
-      else if(current_day==5) {
-        printf("Saturday\t");
-      }
-    }
-    else{
-      printf("Sunday\n");
-    }
+      current_day=0;
   }
+  //Print out day number, print 7 on each before starting a new line
+  /* while(current_date<=num_days) {
+
+
+    //Go week by week
+    for(current_day;current_day<7;current_day++) {
+
+      //heck if we need to pritn special 1st line
+      //(e.g. the month does not start on monday)
+      if((current_date==1) && (current_day!=0)) {
+
+        //Add correct spacing NOT WORKING RIGHT NOW
+        for(int spaces = day*2;spaces>1;--spaces) {
+          printf("\t");
+        }
+      }
+      else {
+        if(current_day==0) {
+          printf("%-d\t", current_date);
+        }
+        else if(current_day==6) {
+          printf("%2d\n",current_date );
+        }
+        else if((current_date< num_days) && (current_day<6)){
+          printf("%2d\t",current_date);
+        }
+        else if(current_date==num_days) {
+          return current_day+1;
+        }
+      }
+
+      current_date++;
+      days_remaining--;
+    }
+    printf("\n");
+    current_day=0;
+  }
+  */
   return 0;
 }
 
