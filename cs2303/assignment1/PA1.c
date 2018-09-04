@@ -2,19 +2,40 @@
 #include <math.h>
 
 int isLeapYear();
-
+int getFirstDayOfYear();
+void printCalendar();
 int main() {
   int year,month; //Month is encoded as 0-11, where 0 is January
   //and day is encoded as 0-6, where 0 is Monday
 
   printf("Please enter a year for this calendar: ");
   scanf("%d",&year);
-  printCalendar(year,5);
+  printCalendar(year,getFirstDayOfYear(year));
+
+  //printf("\n\n1st day of year: %d\n",getFirstDayOfYear(year));
   return 0;
 }
-int getFirstDayOfMonth(int year, int month) {
-  return 0;
+int getFirstDayOfYear(int year) {
+  //day
+  int day =1;
+  int Y = year-1;
+  //last 2 digits of year
+  int y = Y %100;
+
+  //First 2 digits of year
+  int c =Y / 100;
+
+
+  //Shifted month i.e. 11 = January, calculatged from (month-2)%12
+  double shifted_month = 11;
+
+  int h = (int)(day + (2.6 * shifted_month -.2) + y + y/4 + c/4 - 2*c) % 7 -1;
+  if (h<0) {
+    return h +6;
+  }
+  return h;
 }
+
 void printCalendar(int year, int day) {
   int new_day= day;
   printf("\n  ***\t     CALENDER For year %d\t***\n\n", year);
