@@ -1,0 +1,129 @@
+\hypertarget{PA1_8c}{}\section{P\+A1.\+c File Reference}
+\label{PA1_8c}\index{P\+A1.\+c@{P\+A1.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for P\+A1.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{PA1_8c_a86aea7f769c60cca0c56a61eacf69daf}{is\+Leap\+Year} ()
+\item 
+int \hyperlink{PA1_8c_ae5e5f29ba190a8cf9f1e12b600f6ddc4}{get\+First\+Day\+Of\+Year} ()
+\item 
+void \hyperlink{PA1_8c_af43dd253bab4a218cff9273df6683e51}{print\+Calendar} ()
+\item 
+int \hyperlink{PA1_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\item 
+int \hyperlink{PA1_8c_aaabfa78ee8b813dd8925fd6289b46fc6}{get\+First\+Day\+Of\+Year} (int year)
+\item 
+void \hyperlink{PA1_8c_a59c04816e6591ef8125c26a4bab6e173}{print\+Calendar} (int year, int day)
+\item 
+int \hyperlink{PA1_8c_ad87e8288399ca71a38e2558a3ef0b629}{print\+Month\+Name} (int year, int month)
+\item 
+int \hyperlink{PA1_8c_ad5ea0cd479463370efb53b244456ae02}{print\+Month} (int year, int month, int day)
+\item 
+int \hyperlink{PA1_8c_ae2f7c9a7e17225bac3e3f9a506b8a829}{is\+Leap\+Year} (int year)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{PA1_8c_ae5e5f29ba190a8cf9f1e12b600f6ddc4}\label{PA1_8c_ae5e5f29ba190a8cf9f1e12b600f6ddc4}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!get\+First\+Day\+Of\+Year@{get\+First\+Day\+Of\+Year}}
+\index{get\+First\+Day\+Of\+Year@{get\+First\+Day\+Of\+Year}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{get\+First\+Day\+Of\+Year()}{getFirstDayOfYear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int get\+First\+Day\+Of\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{PA1_8c_aaabfa78ee8b813dd8925fd6289b46fc6}\label{PA1_8c_aaabfa78ee8b813dd8925fd6289b46fc6}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!get\+First\+Day\+Of\+Year@{get\+First\+Day\+Of\+Year}}
+\index{get\+First\+Day\+Of\+Year@{get\+First\+Day\+Of\+Year}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{get\+First\+Day\+Of\+Year()}{getFirstDayOfYear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int get\+First\+Day\+Of\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})}
+
+Gauss\textquotesingle{}s Algorithm -\/ Disparate Version $\vert$ Retrieved and modified from \href{https://en.wikipedia.org/wiki/Determination_of_the_day_of_the_week#Gauss.27s_algorithm}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Determination\+\_\+of\+\_\+the\+\_\+day\+\_\+of\+\_\+the\+\_\+week\#\+Gauss.\+27s\+\_\+algorithm} Takes the year and calculates the 1st day of a given month (In this case it gives the 1st of January) 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to calculate 1st day of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Encoded day to return to start next month 
+\end{DoxyReturn}
+\mbox{\Hypertarget{PA1_8c_a86aea7f769c60cca0c56a61eacf69daf}\label{PA1_8c_a86aea7f769c60cca0c56a61eacf69daf}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!is\+Leap\+Year@{is\+Leap\+Year}}
+\index{is\+Leap\+Year@{is\+Leap\+Year}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{is\+Leap\+Year()}{isLeapYear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int is\+Leap\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{PA1_8c_ae2f7c9a7e17225bac3e3f9a506b8a829}\label{PA1_8c_ae2f7c9a7e17225bac3e3f9a506b8a829}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!is\+Leap\+Year@{is\+Leap\+Year}}
+\index{is\+Leap\+Year@{is\+Leap\+Year}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{is\+Leap\+Year()}{isLeapYear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int is\+Leap\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})}
+
+Checks if given year is a leap Year 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to test if leap Year \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 or 1 depending on validity of the year being a leap year 
+\end{DoxyReturn}
+\mbox{\Hypertarget{PA1_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{PA1_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!main@{main}}
+\index{main@{main}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Main function \mbox{\Hypertarget{PA1_8c_af43dd253bab4a218cff9273df6683e51}\label{PA1_8c_af43dd253bab4a218cff9273df6683e51}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!print\+Calendar@{print\+Calendar}}
+\index{print\+Calendar@{print\+Calendar}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{print\+Calendar()}{printCalendar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void print\+Calendar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{PA1_8c_a59c04816e6591ef8125c26a4bab6e173}\label{PA1_8c_a59c04816e6591ef8125c26a4bab6e173}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!print\+Calendar@{print\+Calendar}}
+\index{print\+Calendar@{print\+Calendar}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{print\+Calendar()}{printCalendar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void print\+Calendar (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+Create calendar by passing in a year and a starting day, print header then reassign new\+\_\+day to the \hyperlink{PA1_8c_ad5ea0cd479463370efb53b244456ae02}{print\+Month()} function thus updating the next day correctly 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to print calendar of \\
+\hline
+{\em day} & day to begin each month, gets updated as each month progresses \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{PA1_8c_ad5ea0cd479463370efb53b244456ae02}\label{PA1_8c_ad5ea0cd479463370efb53b244456ae02}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!print\+Month@{print\+Month}}
+\index{print\+Month@{print\+Month}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{print\+Month()}{printMonth()}}
+{\footnotesize\ttfamily int print\+Month (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+Prints the month in a specified format\+: Mon Tue Wed Thr Fri Sat Sun 0 1 2 3 4 5 6 Adds special spacing to first line incase it does not begin with monday and is not the first day of the month 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to get the month names \\
+\hline
+{\em month} & Month to get month name and \# of days \\
+\hline
+{\em day} & current day that the month starts on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The day the next month starts on 
+\end{DoxyReturn}
+\mbox{\Hypertarget{PA1_8c_ad87e8288399ca71a38e2558a3ef0b629}\label{PA1_8c_ad87e8288399ca71a38e2558a3ef0b629}} 
+\index{P\+A1.\+c@{P\+A1.\+c}!print\+Month\+Name@{print\+Month\+Name}}
+\index{print\+Month\+Name@{print\+Month\+Name}!P\+A1.\+c@{P\+A1.\+c}}
+\subsubsection{\texorpdfstring{print\+Month\+Name()}{printMonthName()}}
+{\footnotesize\ttfamily int print\+Month\+Name (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month }\end{DoxyParamCaption})}
+
+Print month name and return number of days in month 
+\begin{DoxyParams}{Parameters}
+{\em year} & Year to print \\
+\hline
+{\em month} & Encoded month to select \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns number of days in given month 
+\end{DoxyReturn}
