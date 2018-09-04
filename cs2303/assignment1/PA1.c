@@ -112,11 +112,11 @@ int printMonth(int year, int month, int day) {
           return 0;
         }
         else
-          return current_day+1;
+          return current_day;
       }
       current_date++;
       days_remaining--;
-      }
+    }
       current_day=0;
   }
   //Print out day number, print 7 on each before starting a new line
