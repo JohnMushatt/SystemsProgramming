@@ -106,6 +106,7 @@ int printMonth(int year, int month, int day) {
 
   printf("Mon\tTue\tWed\tThu\tFri\tSat\tSun\n");
 
+  //If month ends on saturday, next month begins on monday, FIX
   //While we are still building the month
   while(current_date<num_days+1) {
 
@@ -128,12 +129,7 @@ int printMonth(int year, int month, int day) {
         printf("%2d\n", current_date);
       }
       else if(current_date==num_days+1){
-        if(current_day==6)
-        {
-          return 0;
-        }
-        else
-          return current_day;
+        return current_day;
       }
       current_date++;
       days_remaining--;
