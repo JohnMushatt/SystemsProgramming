@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "twoD.h"
-
 /** Main function.
  * @param argc Number of words on the command line.
  * @param argv Array of pointers to character strings containing the

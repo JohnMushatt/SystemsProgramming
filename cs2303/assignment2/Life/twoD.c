@@ -42,6 +42,19 @@ int** make2Dint(int nrows, int ncolumns) {
 char** make2Dchar(int nrows, int ncolumns) {
 
 	char **a; // Array of pointers to rows
-	a = (char**) NULL; // Replace this...
+	a = (char**) malloc(nrows * sizeof(char *));
+
+	if(!a) {
+		return NULL;
+	}
+
+	for(unsigned int i = 0; i < nrows; i++) {
+
+		a[i] = malloc(ncolumns * sizeof (char));
+		if(!a[i]) {
+
+			return (char **) NULL;
+		}
+	}
 	return a;
 }
