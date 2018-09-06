@@ -1,0 +1,3 @@
+/tmp/ccIqeMA1.o: In function `main':
+/home/jemushatt/SystemsProgramming/cs2303/assignment2/Life/life.c:48: undefined reference to `make2Dchar'
+collect2: error: ld returned 1 exit status
