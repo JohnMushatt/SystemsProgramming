@@ -1,4 +1,4 @@
-/tmp/ccZqkuQ0.o: In function `main':
+/tmp/cctp2GbR.o: In function `main':
 life.c:(.text+0x11c): undefined reference to `make2Dchar'
 life.c:(.text+0x12f): undefined reference to `make2Dchar'
 collect2: error: ld returned 1 exit status

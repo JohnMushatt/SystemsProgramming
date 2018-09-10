@@ -80,6 +80,8 @@ int main(int argc, char **argv) {
 		printBoard(gridA,nrows,ncolumns);
 		centerBoard(input,inputFileName,gridA,nrows,ncolumns);
 		printBoard(gridA,nrows,ncolumns);
+		buildBoardInitial(input,gridB,nrows,ncolumns);
+
 	}
 
 	/*Once opened, you can read from the file one character at a time with fgetc().
@@ -143,36 +145,48 @@ int getFileRow(FILE* file,char* fileName) {
 	fclose(input);
 	return row_current;
 }
+int calculateNumNeighbors(int row, int col, char** board, int rows, int cols) {
+	int total = 0;
+	if(board[row][col-1] =='x') {
+		total++;
+	}
+	if(board[row][col+1] =='x') {
+		total++;
+	}
+	if(board[row-1][col] =='x') {
+		total++;
+	}
+	if(board[row+1][col] =='x') {
+		total++;
+	}
+	if(board[row-1][col-1] =='x') {
+		total++;
+	}
+	if(board[row-1][col+1] =='x') {
+		total++;
+	}
+	if(board[row+1][col-1] =='x') {
+		total++;
+	}
+	if(board[row+1][col+1] =='x') {
+		total++;
+	}
+}
+void computeGeneration(char** board, int rows, int cols) {
+	char* current_row;
+
+	for(int i =0; i<rows, i++) {
+		current_row= board[i];
+
+		for(int j=0;j<cols;j++) {
+
+			int neighbors =0;
 
 
-int getFileLineX(FILE* file, char* fileName, int line_num) {
-	FILE* input = fopen(fileName, "r");
-	int row_current= 0;
-	int num_x= 0;
-	char c;
-	while((c=getc(input)) != EOF) {
 
-		if(row_current=line_num) {
-
-			while((c=getc(input))!='\n') {
-
-				if(c=='x') {
-
-					num_x++;
-				}
-			}
-			return num_x;
-		}
-
-		if(c!='\n') {
-			row_current++;
 		}
 	}
-	fclose(input);
-	return num_x;
 }
-
-
 void centerBoard(FILE* file, char* fileName, char** board, int rows, int cols) {
 	int file_col = getFileCol(file,fileName);
 	int file_row = getFileRow(file,fileName);
@@ -185,15 +199,15 @@ void centerBoard(FILE* file, char* fileName, char** board, int rows, int cols) {
 	char* current =  malloc(cols * sizeof(char *));
 	for(int i = start_row; i< rows; i++) {
 
-
-
 		current = board[i];
-
 
 		for(int j = start_col; j <cols; j++) {
 			c=fgetc(input);
 			if(c!=EOF) {
-				if(c=='x') {
+				if(c=='\n') {
+					j=cols;
+				}
+				else if(c=='x' || c=='o') {
 					current[j] = c;
 				}
 			}
@@ -205,82 +219,6 @@ void centerBoard(FILE* file, char* fileName, char** board, int rows, int cols) {
 	}
 	fclose(input);
 }
-/*
-void buildBoardInitialOld(FILE* file, char** board, int nrows, int ncolumns) {
-	int c;
-	char* current;
-  printf("Rows: %d\tCols: %d\n",nrows,ncolumns );
-	for (int current_row =0; current_row < nrows; current_row++) {
-
-		for(int current_col =0;  current_col< ncolumns; current_col++) {
-			current = board[current_row];
-			c =fgetc(file);
-
-			//If we are not end of file
-			if(c!=EOF) {
-
-				//If we are end of line, but not end of board
-				if((c=='\n') && (current_col< ncolumns)) {
-					//Then add remaining spaces
-					int extra_spaces = ncolumns-current_col;
-
-					while(extra_spaces>0) {
-							current[ncolumns-extra_spaces] = 'o';
-							printf("%c",current[ncolumns-extra_spaces]);
-							extra_spaces--;
-
-					}
-					printf("\n");
-				}
-				else {
-					if(c=='x') {
-						current[current_col] = 'x';
-						printf("%c", current[current_col]);
-					}
-					else if(c=='o') {
-						current[current_col] = 'o';
-						printf("%c", current[current_col]);
-					}
-				}
-			}
-		}
-		//If end of file reached but still have rows to go through
-		if(c==EOF && current_row < nrows) {
-			current[current_col]='o';
-			printf("%c", current[]);
-
-
-
-			c=fgetc(file);
-			//If we are not at end of file
-			if(c!= EOF) {
-
-				//If we have reach end of line, but still are less than col, keep adding
-				if(c!='\n') {
-					//If cell is occupied add 'x'
-					if(c=='x') {
-						current[current_col] = 'x';
-					}
-					else {
-						current[current_col] = 'o';
-					}
-				}
-				//If we reached end of line, but still need to add 'o's
-				else if((c=='\n') &&(current_col < ncolumns)){
-
-					int extra_spaces = ncolumns-current_col;
-
-					while(extra_spaces + current_col <ncolumns) {
-						current[current_col + extra_spaces]='o';
-						extra_spaces--;
-					}
-				}
-				printf("%c",board[current_row][current_col]);
-			}
-		}
-		printf("\n");
-	}
-}*/
 
 //Iterate through arrray and print it out
 void printBoard(char** board, int nrows, int ncolumns) {
