@@ -47,8 +47,8 @@ char** make2Dchar(int nrows, int ncolumns) {
 	if(!a) {
 		return NULL;
 	}
-
-	for(unsigned int i = 0; i < nrows; i++) {
+	unsigned i;
+	for(i = 0; i < nrows; i++) {
 
 		a[i] = malloc(ncolumns * sizeof (char));
 		if(!a[i]) {
