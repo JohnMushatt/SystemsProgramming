@@ -22,7 +22,7 @@ int main() {
   int wrongInput =0;
   //Validation of user input, make sure type conversion and date limit succeed
   while(!wrongInput) {
-    if(year!=0 && year >1832) {
+    if(year!=0 && year >1532) {
       printCalendar(year,getFirstDayOfYear(year));
       wrongInput= 1;
     }

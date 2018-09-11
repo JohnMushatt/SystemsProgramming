@@ -1,4 +1,5 @@
-/tmp/cctp2GbR.o: In function `main':
-life.c:(.text+0x11c): undefined reference to `make2Dchar'
-life.c:(.text+0x12f): undefined reference to `make2Dchar'
+/tmp/ccnHAxHl.o: In function `generateGame':
+life.c:(.text+0x186): undefined reference to `make2Dchar'
+life.c:(.text+0x199): undefined reference to `make2Dchar'
+life.c:(.text+0x1ac): undefined reference to `make2Dchar'
 collect2: error: ld returned 1 exit status
