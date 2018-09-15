@@ -15,11 +15,36 @@
  @return Pointer to freshly-allocated string containing a duplicate of src
          or null if no memory is available
 */
+
+/**Copy src string into target string and return a pointer to target
+ * @parm target Pointer to target string to copy to
+ * @parm src Pointer to src string to copy from
+ * @return Pointer to newly copied-to target
+ */
+char* mystrcpy1(char *target, const char *src) {
+
+	*target = (char *) malloc(mystrlen2(src)+1);
+	char *target_char = target;
+	const char *src_char = src;
+
+	for(src_char; *src_char != '\0';src_char++) {
+
+		*target_char = *src_char;
+
+	}
+	*target_char = '\0';
+
+	return target;
+
+
+
+}
+
 char* mystrdup1(const char* src) {
   int length; // Length of the source string
   char* newstr; // Pointer to memory which will hold new string
 
-  length = strlen(src) + 1;  // Leave space for the terminator
+  length = mystrlen1(src) + 1;  // Leave space for the terminator
   newstr = (char*) malloc(length); // Must cast!
 
   // If no memory was available, return null pointer immediately
@@ -30,7 +55,30 @@ char* mystrdup1(const char* src) {
   return newstr;
 }
 
+/** Copies input string and returns the copied version
+ * @param src Pointer to input string
+ * @return Pointer to new string containing char elements of the src string as a copy,
+ *         or null if not enough memory
+ */
+char* mystrdup2(const char* src) {
 
+	int length;
+
+	char* copied_string;
+
+	length = mystrlen2(src) +1;
+
+	copied_string = (char*) malloc (length);
+
+	if(copied_string == 0) {
+		return (char *) 0;
+	}
+	else {
+		strcpy(copied_string,src);
+		return copied_string;
+	}
+
+}
 /** Calculates the length of a string, not including null character '\0'
  * This version iterates through the char array via array subscripting
  * @param  s Pointer to string to calculate length of

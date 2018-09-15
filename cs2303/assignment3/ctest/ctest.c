@@ -41,7 +41,7 @@ int main()
 	// Note that strlen() returns size_t, which is typedef'd to
 	//   unsigned long, so we need to print it with %ld instead of just %d.
 	printf("For string /%s/, strlen() returns %ld\n", p1, strlen(p1));
-	//printf("For string /%s/, mystrlen1() returns %ld\n", p1, mystrlen1(p1));
+	printf("For string /%s/, mystrlen1() returns %ld\n", p1, mystrlen1(p1));
 
 	// Duplicate a string, using strdup(), then print
 	printf("\nBefore calling strdup(), pointer a2 = %p, contents = %s\n", a2, a2);
@@ -52,6 +52,12 @@ int main()
 	// Duplicate a string, using my function, then print
 	printf("\nBefore calling mystrdup1(), pointer a2 = %p, contents = %s\n", a2, a2);
 	p2 = mystrdup1(a2);
+	printf("Duplicated string: \n");
+	printf("Pointer p2 = %p, contents = %s\n", p2, p2);
+
+	// Duplicate a string, using John's function, then print
+	printf("\nBefore calling mystrdup2(), pointer a2 = %p, contents = %s\n", a2, a2);
+	p2 = mystrdup2(a2);
 	printf("Duplicated string: \n");
 	printf("Pointer p2 = %p, contents = %s\n", p2, p2);
 
@@ -76,10 +82,14 @@ int main()
 
 
 
+	//Copy one string to another using pointer arithmetic
+	char* test_String = "Copy this string from src to target";
+	char* string_Copy = "Copy something onto me!";
 
-	 char *test = "Test String";
-	 mystrlen1(test);
-	 mystrlen2(test);
+	printf("\ntest_String: \"%s\"\n" ,test_String);
+	printf("string_Copy: \"\" ");
+	//mystrcpy1(string_Copy,test_String);
+	printf("New string_Copy: %s",string_Copy);
 
 	return 0;
 }
