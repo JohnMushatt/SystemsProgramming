@@ -83,20 +83,35 @@ int main()
 
 
 	//Copy one string to another using pointer arithmetic
-	char* test_String = "Copy this string from src to target";
-	char* string_Copy = "Copy something onto me!";
+	char testString1[100] =  "Hello";
+	char testCopy[] = "Copy something onto me!";
 
-	printf("\ntest_String: \"%s\"\n" ,test_String);
-	printf("string_Copy: \"%s\"\n",string_Copy);
-	mystrcpy1(string_Copy,test_String);
-	printf("New string_Copy: %s\n\n",string_Copy);
+	mystrcpy1(testString1,testCopy);
+	printf("\nNew string_Copy: %s\n\n",testString1);
 
 
-	char* test_String1 = "Ready to be concatenated";
-	char* test_String2 = "Concatenate me to String1";
-	printf("%s\n%s\n",test_String1,test_String2);
+	char test_String1[100] = "Ready to be concatenated";
+	char test_String2[] = "Concatenate me to String1";
 	mystrcat1(test_String1,test_String2);
-	printf("%s\n",test_String1);
+	printf("\n%s\n",test_String1);
 
+	char test_String4[100] = "Ready to be concatenated";
+	char test_String5[] = "Concatenate me to String1";
+	mystrncat1(test_String4,test_String5,5);
+	printf("\n%s\n",test_String4);
+
+	char test_String6[100] = "Ready to add copies";
+	char test_String7[] = "Copy me";
+	mystrncpy1(test_String6,test_String7,2);
+	printf("\n%s\n",test_String6);
+	mystrncpy1(test_String6,test_String7,10);
+	printf("\n%s\n",test_String6);
+
+
+	char test_String8[100]= "Duplicate me please";
+	char* test_String9=NULL;
+	test_String9=mystrndup1(test_String8,10);
+
+	printf("\n%s\n",test_String9);
 	return 0;
 }
