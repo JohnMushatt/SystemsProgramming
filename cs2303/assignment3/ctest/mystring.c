@@ -15,31 +15,6 @@
  @return Pointer to freshly-allocated string containing a duplicate of src
          or null if no memory is available
 */
-
-/**Copy src string into target string and return a pointer to target
- * @parm target Pointer to target string to copy to
- * @parm src Pointer to src string to copy from
- * @return Pointer to newly copied-to target
- */
-char* mystrcpy1(char *target, const char *src) {
-
-	*target = (char *) malloc(mystrlen2(src)+1);
-	char *target_char = target;
-	const char *src_char = src;
-
-	for(src_char; *src_char != '\0';src_char++) {
-
-		*target_char = *src_char;
-
-	}
-	*target_char = '\0';
-
-	return target;
-
-
-
-}
-
 char* mystrdup1(const char* src) {
   int length; // Length of the source string
   char* newstr; // Pointer to memory which will hold new string
@@ -54,7 +29,46 @@ char* mystrdup1(const char* src) {
   strcpy(newstr, src);
   return newstr;
 }
+/**Copy src string into target string and return a pointer to target
+ * @param target Pointer to target string to copy to
+ * @param src Pointer to src string to copy from
+ * @return Pointer to newly copied-to target
+ */
 
+char* mystrcpy1(char *target, const char *src) {
+
+	target = (char *) malloc(mystrlen2(src)+1);
+	char *target_char = target;
+	const char *src_char = src;
+
+	for(; *src_char != '\0';src_char++) {
+
+		*target_char = *src_char;
+		target_char++;
+
+	}
+	*target_char = '\0';
+
+	return target;
+
+
+
+}
+/** Concatenates two strings together
+ * @param dest Pointer to destination string
+ * @param src Pointer to src string
+ * @return Pointer to destination string after src is concatenated into dest
+ */
+char* mystrcat1(char *dest,const char *src) {
+	char *c = (char *) malloc(sizeof(char)* mystrlen2(src));
+	c = dest + mystrlen2(dest);
+
+	while(*src!='\0') {
+		*c++=*src++;
+
+	}
+	return dest;
+}
 /** Copies input string and returns the copied version
  * @param src Pointer to input string
  * @return Pointer to new string containing char elements of the src string as a copy,

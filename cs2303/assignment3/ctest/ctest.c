@@ -87,9 +87,16 @@ int main()
 	char* string_Copy = "Copy something onto me!";
 
 	printf("\ntest_String: \"%s\"\n" ,test_String);
-	printf("string_Copy: \"\" ");
-	//mystrcpy1(string_Copy,test_String);
-	printf("New string_Copy: %s",string_Copy);
+	printf("string_Copy: \"%s\"\n",string_Copy);
+	mystrcpy1(string_Copy,test_String);
+	printf("New string_Copy: %s\n\n",string_Copy);
+
+
+	char* test_String1 = "Ready to be concatenated";
+	char* test_String2 = "Concatenate me to String1";
+	printf("%s\n%s\n",test_String1,test_String2);
+	mystrcat1(test_String1,test_String2);
+	printf("%s\n",test_String1);
 
 	return 0;
 }

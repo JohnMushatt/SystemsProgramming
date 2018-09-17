@@ -1,0 +1,7 @@
+/tmp/ccwh1UAJ.o: In function `main':
+ctest.c:(.text+0x221): undefined reference to `mystrlen1'
+ctest.c:(.text+0x2b8): undefined reference to `mystrdup1'
+ctest.c:(.text+0x30c): undefined reference to `mystrdup2'
+ctest.c:(.text+0x476): undefined reference to `mystrcpy1'
+ctest.c:(.text+0x4b7): undefined reference to `mystrcat1'
+collect2: error: ld returned 1 exit status

@@ -110,7 +110,7 @@ int main(int argc, char **argv) {
 @param fileName location of file
 @param doPrint print or no print
 @param doPause pause or no pauseing
-@param gens # of gens to go through 
+@param gens # of gens to go through
 */
 void generateGame(FILE* input,int rows,int columns,char* fileName, int doPrint, int doPause, int gens ) {
 
@@ -535,7 +535,7 @@ int calculateNumNeighbors(int row, int col, char** board, int rows, int cols) {
 			total++;
 		}
 	}
-return total;
+	return total;
 }
 
 /** Compute next board and swap it

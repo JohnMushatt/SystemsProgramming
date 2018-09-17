@@ -1,4 +1,4 @@
-/tmp/ccnHAxHl.o: In function `generateGame':
+/tmp/ccXx6iPh.o: In function `generateGame':
 life.c:(.text+0x186): undefined reference to `make2Dchar'
 life.c:(.text+0x199): undefined reference to `make2Dchar'
 life.c:(.text+0x1ac): undefined reference to `make2Dchar'
