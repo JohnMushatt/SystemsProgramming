@@ -13,6 +13,11 @@ int main(int atgc, char *argv[]) {
 	printf("\n");
 	printEmployee(randomEmployee);
 
-	struct Employee **employees = makeArrayEmployees(10);
+	struct Employee *employees = makeArrayEmployees(10);
+	printEmployees(employees,10);
+
+	struct Employee *new_employees = duplicateEmployees(employees,10);
+	printf("\n");
+	//printEmployees(new_employees,10);
 	return 0;
 }

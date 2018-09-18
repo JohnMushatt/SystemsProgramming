@@ -7214,3 +7214,15 @@ C Model Exception: C Model Status [Element mystruct.c does not exist.]
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
 !SUBENTRY 1 org.eclipse.cdt.core 4 969 2018-09-18 13:15:18.972
 !MESSAGE Element mystruct.c does not exist.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-09-18 16:08:37.006
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-09-18 16:08:37.022
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-09-18 16:08:37.022
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-09-18 16:08:37.261
+!MESSAGE Indexed 'structest' (2 sources, 58 headers) in 1.57 sec: 1,272 declarations; 2,335 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
