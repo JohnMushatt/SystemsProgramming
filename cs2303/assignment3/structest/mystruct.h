@@ -42,3 +42,5 @@ int getRandomNameLength();
 char* getRandomName();
 
 void changeBirthYear(struct Employee *e);
+
+void seedRand();

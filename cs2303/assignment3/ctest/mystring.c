@@ -34,20 +34,24 @@ char* mystrdup1(const char* src) {
  * @param src Pointer to src string to copy from
  * @return Pointer to newly copied-to target
  */
-
 char* mystrcpy1(char *dest, const char *src) {
 
+	//Make sure we dont increment original pointer
 	char *dest_char = dest;
+	//Make sure we dont increment original pointer
 	const char *src_char = src;
 
+	//Loop through the string and copy
 	for(; *src_char != '\0';src_char++) {
 
 		*dest_char = *src_char;
 		dest_char++;
 
 	}
+	//Add null terminator
 	*dest_char = '\0';
 
+	//Return pointer to newly copied string
 	return dest;
 
 
@@ -61,21 +65,29 @@ char* mystrcpy1(char *dest, const char *src) {
  * @return Pointer to destination after copy
  */
 char* mystrncpy1(char *dest, const char *src, size_t n) {
-
+	//Make sure we dont increment original pointer
 	char *dest_char = dest;
+	//Make sure we dont increment original pointer
 	const char *src_char = src;
+
+	//Set counter to 0
 	size_t counter = 0;
+
+	//Loop through and copy until either null terminator or n bytes have been copied
 	for(; *src_char != '\0' && (counter <=n);src_char++) {
 
+		//Set returned pointer to equal a char from src
 		*dest_char = *src_char;
 		dest_char++;
 		counter++;
 	}
+	//If the copied string is less than the # of bytes to copy passed in, add n remaining null terminators
 	if(counter<=n) {
 		for(;counter<=n;counter++) {
 			*dest_char = '\0';
 		}
 	}
+	//Return pointer to newly copied array
 	return dest;
 }
 /** Concatenates two strings together
@@ -84,13 +96,18 @@ char* mystrncpy1(char *dest, const char *src, size_t n) {
  * @return Pointer to destination string after src is concatenated into dest
  */
 char* mystrcat1(char *dest,const char *src) {
+
+	//Begin temporary pointer at the end of the dest array
 	char* c = dest + mystrlen2(dest);
 
 	while(*src!='\0') {
+		//Concatenate
 		*c++=*src++;
 
 	}
+	//Add null terminator
 	*c='\0';
+	//Return newly concatenated pointer
 	return dest;
 }
 
@@ -101,35 +118,41 @@ char* mystrcat1(char *dest,const char *src) {
  */
 char* mystrncat1(char *dest, const char *src, size_t n) {
 
+	//Begin temporary pointer at the end of the dest array
 	char* c = dest + mystrlen2(dest);
-	size_t counter =0;
-		while(*src!='\0' && counter < n) {
-			*c++=*src++;
-			counter++;
 
-		}
-		*c='\0';
-		return dest;
+	//Set counter to 0
+	size_t counter =0;
+	//While not at end of char array and still have n-counter bytes
+	while(*src!='\0' && counter < n) {
+		*c++=*src++;
+		counter++;
+	}
+	//Add null terminator
+	*c='\0';
+	//Return pointer to new concatenated array
+	return dest;
 }
 /** Copies input string and returns the copied version
  * @param src Pointer to input string
  * @return Pointer to new string containing char elements of the src string as a copy,
  *         or null if not enough memory
  */
-
 char* mystrdup2(const char* src) {
 
+	//length of src
 	int length;
-
+	//String to return
 	char* copied_string;
-
+	//Set length
 	length = mystrlen2(src) +1;
-
+	//Allocate memory
 	copied_string = (char*) malloc (length);
-
+	//If size 0 return null poiinter
 	if(copied_string == 0) {
 		return (char *) 0;
 	}
+	//Copy string and return it
 	else {
 		strcpy(copied_string,src);
 		return copied_string;
@@ -162,13 +185,14 @@ char* mystrndup1(const char* src, size_t n) {
  */
  size_t mystrlen1(const char *s) {
 
-
+	 //Set length to 0
 	 size_t str_length =0;
 
+	 //Loop through and increment
 	 for(int i =0; s[i]!='\0';i++) {
 		 str_length++;
 	 }
-
+	 //return length
 	 return str_length;
  }
 /** Calculates the length of a string, not including null character '\0'
@@ -178,14 +202,17 @@ char* mystrndup1(const char* src, size_t n) {
  */
  size_t mystrlen2(const char *s) {
 
+	 //Maintain original pointer via a copy of it
 	 const char *string_pointer = s;
+	 //Set size
 	 size_t str_length = 0;
 
+	 //Loop through and count using pointers
 	 while(*string_pointer != '\0') {
 		 str_length++;
 		 string_pointer++;
 	 }
-
+	 //Return size
 	 return str_length;
  }
 

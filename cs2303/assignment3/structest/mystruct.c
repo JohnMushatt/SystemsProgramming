@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "mystruct.h"
 #include <stdio.h>
+#include <time.h>
 /** Allocates an Employee struct and fills in its fields
  * @param birth Year the emploee was born.
  * @param start Year the employee started with the company.
@@ -69,7 +70,12 @@ struct Employee *makeRandomEmployee() {
 	//Return pointer to employee
 	return employee;
 }
+/**Changes the birth year of an employee
+ * @param e Pointer to an employee
+ */
 void changeBirthYear(struct Employee *e) {
+
+	//increment the birth year by 1
 	e->birth_year++;
 }
 /**Shallow copy of new array of employees
@@ -214,4 +220,12 @@ int getRandomNameLength(){
 
 	return  (rand()%11+1);
 
+}
+/**Seeds the random function
+ *
+ */
+void seedRand() {
+	time_t t;
+	unsigned int seed = time(&t);
+	srand(seed);
 }
