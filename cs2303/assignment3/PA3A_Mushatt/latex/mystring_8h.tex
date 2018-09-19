@@ -1,0 +1,226 @@
+\section{mystring.\+h File Reference}
+\label{mystring_8h}\index{mystring.\+h@{mystring.\+h}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \textbf{ mystrdup1} (const char $\ast$src)
+\item 
+char $\ast$ \textbf{ mystrdup2} (const char $\ast$src)
+\item 
+char $\ast$ \textbf{ mystrndup1} (const char $\ast$src, size\+\_\+t n)
+\item 
+char $\ast$ \textbf{ mystrcpy1} (char $\ast$dest, const char $\ast$src)
+\item 
+char $\ast$ \textbf{ mystrncpy1} (char $\ast$dest, const char $\ast$src, size\+\_\+t n)
+\item 
+char $\ast$ \textbf{ mystrcat1} (char $\ast$dest, const char $\ast$src)
+\item 
+char $\ast$ \textbf{ mystrncat1} (char $\ast$dest, const char $\ast$src, size\+\_\+t n)
+\item 
+size\+\_\+t \textbf{ mystrlen1} (const char $\ast$s)
+\item 
+size\+\_\+t \textbf{ mystrlen2} (const char $\ast$s)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{mystring_8h_aeb33cf7f3de9369201d631786fbc6502}} 
+\index{mystring.\+h@{mystring.\+h}!mystrcat1@{mystrcat1}}
+\index{mystrcat1@{mystrcat1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrcat1()}
+{\footnotesize\ttfamily char$\ast$ mystrcat1 (\begin{DoxyParamCaption}\item[{char $\ast$}]{dest,  }\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
+
+Concatenates two strings together 
+\begin{DoxyParams}{Parameters}
+{\em dest} & Pointer to destination string \\
+\hline
+{\em src} & Pointer to src string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to destination string after src is concatenated into dest 
+\end{DoxyReturn}
+
+
+References mystrlen2().
+
+
+
+Referenced by main().
+
+\mbox{\label{mystring_8h_ada7c54e5a51651f59e46fdf44d5c4a17}} 
+\index{mystring.\+h@{mystring.\+h}!mystrcpy1@{mystrcpy1}}
+\index{mystrcpy1@{mystrcpy1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrcpy1()}
+{\footnotesize\ttfamily char$\ast$ mystrcpy1 (\begin{DoxyParamCaption}\item[{char $\ast$}]{dest,  }\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
+
+Copy src string into target string and return a pointer to target 
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to target string to copy to \\
+\hline
+{\em src} & Pointer to src string to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to newly copied-\/to target 
+\end{DoxyReturn}
+
+
+Referenced by main().
+
+\mbox{\label{mystring_8h_a96faa8c5f25d934849fa962038898698}} 
+\index{mystring.\+h@{mystring.\+h}!mystrdup1@{mystrdup1}}
+\index{mystrdup1@{mystrdup1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrdup1()}
+{\footnotesize\ttfamily char$\ast$ mystrdup1 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
+
+\doxyref{mystring.\+h}{p.}{mystring_8h} \begin{DoxyAuthor}{Author}
+Mike Ciaraldi My own versions of some of the C-\/style string functions
+\end{DoxyAuthor}
+\doxyref{mystring.\+c}{p.}{mystring_8c} \begin{DoxyAuthor}{Author}
+Mike Ciaraldi My own versions of some of the C-\/style string functions Duplicates a C-\/style string. 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to string to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to freshly-\/allocated string containing a duplicate of src or null if no memory is available 
+\end{DoxyReturn}
+
+
+References mystrlen1().
+
+
+
+Referenced by main().
+
+\mbox{\label{mystring_8h_ab139acb6ec7d95a08af2fb1e724d9309}} 
+\index{mystring.\+h@{mystring.\+h}!mystrdup2@{mystrdup2}}
+\index{mystrdup2@{mystrdup2}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrdup2()}
+{\footnotesize\ttfamily char$\ast$ mystrdup2 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
+
+Copies input string and returns the copied version 
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to input string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new string containing char elements of the src string as a copy, or null if not enough memory 
+\end{DoxyReturn}
+
+
+References mystrlen2().
+
+
+
+Referenced by main().
+
+\mbox{\label{mystring_8h_a71f9f1095f41990d202157923cfe578a}} 
+\index{mystring.\+h@{mystring.\+h}!mystrlen1@{mystrlen1}}
+\index{mystrlen1@{mystrlen1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrlen1()}
+{\footnotesize\ttfamily size\+\_\+t mystrlen1 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+Calculates the length of a string, not including null character \textquotesingle{}\textbackslash{}0\textquotesingle{} This version iterates through the char array via array subscripting 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to string to calculate length of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Size of the string 
+\end{DoxyReturn}
+
+
+Referenced by main(), mystrdup1(), and mystrndup1().
+
+\mbox{\label{mystring_8h_a0553e98c4213b02262ce36a73cc9b088}} 
+\index{mystring.\+h@{mystring.\+h}!mystrlen2@{mystrlen2}}
+\index{mystrlen2@{mystrlen2}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrlen2()}
+{\footnotesize\ttfamily size\+\_\+t mystrlen2 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+Calculates the length of a string, not including null character \textquotesingle{}\textbackslash{}0\textquotesingle{} via poiner arithmatic 
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to string to calculate length of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Size of the string 
+\end{DoxyReturn}
+
+
+Referenced by mystrcat1(), mystrdup2(), and mystrncat1().
+
+\mbox{\label{mystring_8h_a7f304a8eee7d7ac1c2dc330e52877ab2}} 
+\index{mystring.\+h@{mystring.\+h}!mystrncat1@{mystrncat1}}
+\index{mystrncat1@{mystrncat1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrncat1()}
+{\footnotesize\ttfamily char$\ast$ mystrncat1 (\begin{DoxyParamCaption}\item[{char $\ast$}]{dest,  }\item[{const char $\ast$}]{src,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Concatenates n bytes of src string to dest string, adding null terminator at the end 
+\begin{DoxyParams}{Parameters}
+{\em dest} & Destination string to concatenate to from src \\
+\hline
+{\em src} & Source to concatenate from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to destination after concatenation 
+\end{DoxyReturn}
+
+
+References mystrlen2().
+
+
+
+Referenced by main().
+
+\mbox{\label{mystring_8h_a3908e7b558607895839ab38ad58c7e75}} 
+\index{mystring.\+h@{mystring.\+h}!mystrncpy1@{mystrncpy1}}
+\index{mystrncpy1@{mystrncpy1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrncpy1()}
+{\footnotesize\ttfamily char$\ast$ mystrncpy1 (\begin{DoxyParamCaption}\item[{char $\ast$}]{dest,  }\item[{const char $\ast$}]{src,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Copies n \# of bytes from src to dest, adding null terminators if mystrlen2(src) $<$ n 
+\begin{DoxyParams}{Parameters}
+{\em dest} & Destination of string to copy to from src \\
+\hline
+{\em src} & Source to copy from \\
+\hline
+{\em n} & \# of bytes to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to destination after copy 
+\end{DoxyReturn}
+
+
+Referenced by main(), and mystrndup1().
+
+\mbox{\label{mystring_8h_a1c947d226cc3951bc997d933447adc72}} 
+\index{mystring.\+h@{mystring.\+h}!mystrndup1@{mystrndup1}}
+\index{mystrndup1@{mystrndup1}!mystring.\+h@{mystring.\+h}}
+\subsubsection{mystrndup1()}
+{\footnotesize\ttfamily char$\ast$ mystrndup1 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{src,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Duplicate n bytes of from src into a new string holding the right amount of memory 
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to source string to duplicate from \\
+\hline
+{\em n} & Number of bytes to duplicate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new string containing duplicated string and n number of bytes 
+\end{DoxyReturn}
+
+
+References mystrlen1(), and mystrncpy1().
+
+
+
+Referenced by main().
+

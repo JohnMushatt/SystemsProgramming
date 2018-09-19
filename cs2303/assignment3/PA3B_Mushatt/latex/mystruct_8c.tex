@@ -1,0 +1,310 @@
+\section{mystruct.\+c File Reference}
+\label{mystruct_8c}\index{mystruct.\+c@{mystruct.\+c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mystruct.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Employee} $\ast$ \textbf{ make\+Employee} (int birth, int start, const char $\ast$name)
+\item 
+struct \textbf{ Employee} $\ast$$\ast$ \textbf{ make\+Array\+Employees} (size\+\_\+t n)
+\item 
+struct \textbf{ Employee} $\ast$ \textbf{ make\+Random\+Employee} ()
+\item 
+void \textbf{ change\+Birth\+Year} (struct \textbf{ Employee} $\ast$e)
+\item 
+struct \textbf{ Employee} $\ast$$\ast$ \textbf{ duplicate\+Employees} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t n)
+\item 
+struct \textbf{ Employee} $\ast$$\ast$ \textbf{ deep\+Copy\+Employees} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t n)
+\item 
+void \textbf{ free\+Employees} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t n)
+\item 
+char $\ast$ \textbf{ get\+Random\+Name} ()
+\item 
+void \textbf{ print\+Employees} (struct \textbf{ Employee} $\ast$$\ast$e, size\+\_\+t n)
+\item 
+void \textbf{ print\+Employee} (struct \textbf{ Employee} $\ast$e)
+\item 
+char \textbf{ get\+Random\+Lower\+Letter} ()
+\item 
+char \textbf{ get\+Random\+Upper\+Letter} ()
+\item 
+int \textbf{ get\+Random\+Int} ()
+\item 
+int \textbf{ get\+Random\+Name\+Length} ()
+\item 
+void \textbf{ seed\+Rand} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{mystruct_8c_a03d814eb91c823bf450cba49f392a119}} 
+\index{mystruct.\+c@{mystruct.\+c}!change\+Birth\+Year@{change\+Birth\+Year}}
+\index{change\+Birth\+Year@{change\+Birth\+Year}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{change\+Birth\+Year()}
+{\footnotesize\ttfamily void change\+Birth\+Year (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$}]{e }\end{DoxyParamCaption})}
+
+Changes the birth year of an employee 
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to an employee \\
+\hline
+\end{DoxyParams}
+
+
+References Employee\+::birth\+\_\+year.
+
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_a825703929a616f1e5e79a577c9547bf3}} 
+\index{mystruct.\+c@{mystruct.\+c}!deep\+Copy\+Employees@{deep\+Copy\+Employees}}
+\index{deep\+Copy\+Employees@{deep\+Copy\+Employees}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{deep\+Copy\+Employees()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$$\ast$ deep\+Copy\+Employees (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Deep Copy of employees 
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to array of employees \\
+\hline
+{\em n} & \# of employees to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to newly deep copied array 
+\end{DoxyReturn}
+
+
+References Employee\+::birth\+\_\+year, Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_a8f9a16c83c29c8b7787b7231b07d1f0f}} 
+\index{mystruct.\+c@{mystruct.\+c}!duplicate\+Employees@{duplicate\+Employees}}
+\index{duplicate\+Employees@{duplicate\+Employees}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{duplicate\+Employees()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$$\ast$ duplicate\+Employees (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Shallow copy of new array of employees 
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to array of employees \\
+\hline
+{\em n} & size of employees to duplicate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to array of new employees 
+\end{DoxyReturn}
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_ae279af4cff94e8b642db1b5c9135452d}} 
+\index{mystruct.\+c@{mystruct.\+c}!free\+Employees@{free\+Employees}}
+\index{free\+Employees@{free\+Employees}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{free\+Employees()}
+{\footnotesize\ttfamily void free\+Employees (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Frees memory from each employee and then the array holding the employees 
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer pointing to an array holding pointers of employees \\
+\hline
+{\em n} & \# of employees to free \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_a1d0c50629d4a49194b48ab4077cc782d}} 
+\index{mystruct.\+c@{mystruct.\+c}!get\+Random\+Int@{get\+Random\+Int}}
+\index{get\+Random\+Int@{get\+Random\+Int}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{get\+Random\+Int()}
+{\footnotesize\ttfamily int get\+Random\+Int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate a random year from 1-\/9999 \begin{DoxyReturn}{Returns}
+a year from 1 -\/ 9999 
+\end{DoxyReturn}
+
+
+Referenced by make\+Random\+Employee().
+
+\mbox{\label{mystruct_8c_a3a5b60f1853ae274204be0833de6a173}} 
+\index{mystruct.\+c@{mystruct.\+c}!get\+Random\+Lower\+Letter@{get\+Random\+Lower\+Letter}}
+\index{get\+Random\+Lower\+Letter@{get\+Random\+Lower\+Letter}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{get\+Random\+Lower\+Letter()}
+{\footnotesize\ttfamily char get\+Random\+Lower\+Letter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate random lower case letter \begin{DoxyReturn}{Returns}
+A lower case letter 
+\end{DoxyReturn}
+
+
+Referenced by get\+Random\+Name().
+
+\mbox{\label{mystruct_8c_a86fe8958fb7fe7875be7ee9fd5041dce}} 
+\index{mystruct.\+c@{mystruct.\+c}!get\+Random\+Name@{get\+Random\+Name}}
+\index{get\+Random\+Name@{get\+Random\+Name}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{get\+Random\+Name()}
+{\footnotesize\ttfamily char$\ast$ get\+Random\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate a random name \begin{DoxyReturn}{Returns}
+Return a random name 
+\end{DoxyReturn}
+
+
+References get\+Random\+Lower\+Letter(), get\+Random\+Name\+Length(), get\+Random\+Upper\+Letter(), and Employee\+::name.
+
+
+
+Referenced by make\+Random\+Employee().
+
+\mbox{\label{mystruct_8c_aa93ad5981e203a8a70b3db489b91bad7}} 
+\index{mystruct.\+c@{mystruct.\+c}!get\+Random\+Name\+Length@{get\+Random\+Name\+Length}}
+\index{get\+Random\+Name\+Length@{get\+Random\+Name\+Length}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{get\+Random\+Name\+Length()}
+{\footnotesize\ttfamily int get\+Random\+Name\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate a random name length \begin{DoxyReturn}{Returns}
+random name length 1-\/11 
+\end{DoxyReturn}
+
+
+Referenced by get\+Random\+Name().
+
+\mbox{\label{mystruct_8c_ae5b9a294ebbb58a5141d9c6f3ea58e3f}} 
+\index{mystruct.\+c@{mystruct.\+c}!get\+Random\+Upper\+Letter@{get\+Random\+Upper\+Letter}}
+\index{get\+Random\+Upper\+Letter@{get\+Random\+Upper\+Letter}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{get\+Random\+Upper\+Letter()}
+{\footnotesize\ttfamily char get\+Random\+Upper\+Letter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate an upper case letter \begin{DoxyReturn}{Returns}
+An upper case letter 
+\end{DoxyReturn}
+
+
+Referenced by get\+Random\+Name().
+
+\mbox{\label{mystruct_8c_a47ce1bf8051599ae5149098464ff1dde}} 
+\index{mystruct.\+c@{mystruct.\+c}!make\+Array\+Employees@{make\+Array\+Employees}}
+\index{make\+Array\+Employees@{make\+Array\+Employees}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{make\+Array\+Employees()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$$\ast$ make\+Array\+Employees (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Creates array of employees 
+\begin{DoxyParams}{Parameters}
+{\em n} & Size to make \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to new struct 
+\end{DoxyReturn}
+
+
+References make\+Random\+Employee().
+
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_a47ede2fced0227e67281196472097118}} 
+\index{mystruct.\+c@{mystruct.\+c}!make\+Employee@{make\+Employee}}
+\index{make\+Employee@{make\+Employee}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{make\+Employee()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$ make\+Employee (\begin{DoxyParamCaption}\item[{int}]{birth,  }\item[{int}]{start,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+\doxyref{mystruct.\+c}{p.}{mystruct_8c} \begin{DoxyAuthor}{Author}
+Mike Ciaraldi Allocates an \doxyref{Employee}{p.}{structEmployee} struct and fills in its fields 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em birth} & Year the emploee was born. \\
+\hline
+{\em start} & Year the employee started with the company. \\
+\hline
+{\em name} & String containing employee\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \doxyref{Employee}{p.}{structEmployee} struct, newly allocated from the heap. 
+\end{DoxyReturn}
+
+
+References Employee\+::birth\+\_\+year, Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_a3a236a57a40387807c40bf62b5b8fe90}} 
+\index{mystruct.\+c@{mystruct.\+c}!make\+Random\+Employee@{make\+Random\+Employee}}
+\index{make\+Random\+Employee@{make\+Random\+Employee}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{make\+Random\+Employee()}
+{\footnotesize\ttfamily struct \textbf{ Employee}$\ast$ make\+Random\+Employee (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a random employ with random info \begin{DoxyReturn}{Returns}
+Pointer to struct 
+\end{DoxyReturn}
+
+
+References Employee\+::birth\+\_\+year, get\+Random\+Int(), get\+Random\+Name(), Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by main(), and make\+Array\+Employees().
+
+\mbox{\label{mystruct_8c_acff9aa9547982f1b0effbd6f302e325e}} 
+\index{mystruct.\+c@{mystruct.\+c}!print\+Employee@{print\+Employee}}
+\index{print\+Employee@{print\+Employee}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{print\+Employee()}
+{\footnotesize\ttfamily void print\+Employee (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$}]{e }\end{DoxyParamCaption})}
+
+Print single employee 
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to employee \\
+\hline
+\end{DoxyParams}
+
+
+References Employee\+::birth\+\_\+year, Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_a3637b6ce9338b1158ac7fd59032776fb}} 
+\index{mystruct.\+c@{mystruct.\+c}!print\+Employees@{print\+Employees}}
+\index{print\+Employees@{print\+Employees}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{print\+Employees()}
+{\footnotesize\ttfamily void print\+Employees (\begin{DoxyParamCaption}\item[{struct \textbf{ Employee} $\ast$$\ast$}]{e,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Print employees 
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to array of employees \\
+\hline
+{\em n} & Number of employees to print \\
+\hline
+\end{DoxyParams}
+
+
+References Employee\+::birth\+\_\+year, Employee\+::name, and Employee\+::start\+\_\+year.
+
+
+
+Referenced by main().
+
+\mbox{\label{mystruct_8c_ad480a37f0ad21127fdd833b8fb116e71}} 
+\index{mystruct.\+c@{mystruct.\+c}!seed\+Rand@{seed\+Rand}}
+\index{seed\+Rand@{seed\+Rand}!mystruct.\+c@{mystruct.\+c}}
+\subsubsection{seed\+Rand()}
+{\footnotesize\ttfamily void seed\+Rand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Seeds the random function 
+
+Referenced by main().
+
