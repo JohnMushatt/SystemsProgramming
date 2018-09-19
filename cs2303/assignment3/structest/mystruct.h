@@ -16,13 +16,29 @@ struct Employee {
 
 // Function prototype(s):
 struct Employee *makeEmployee(int birth, int startq, const char* name);
+
 struct Employee *makeRandomEmployee();
-struct Employee *duplicateEmployee(struct Employee *e);
-struct Employee *makeArrayEmployees(size_t n);
-void printEmployees(struct Employee *e,size_t n);
+
+struct Employee **duplicateEmployees(struct Employee **e, size_t n);
+
+struct Employee **makeArrayEmployees(size_t n);
+
+struct Employee **deepCopyEmployees(struct Employee **e, size_t n);
+
+void freeEmployees(struct Employee **e,size_t n);
+
+void printEmployees(struct Employee **e,size_t n);
+
 void printEmployee(struct Employee *e);
+
 char getRandomLowerLetter();
+
 char getRandomUpperLetter();
+
 int getRandomInt();
+
 int getRandomNameLength();
+
 char* getRandomName();
+
+void changeBirthYear(struct Employee *e);

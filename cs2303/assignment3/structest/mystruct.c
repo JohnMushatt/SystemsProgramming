@@ -15,70 +15,125 @@
  */
 struct Employee *makeEmployee(int birth, int start, const char *name) {
 
-	struct Employee *employee = malloc(sizeof *employee);
+	//Allocate memory for employee
+	struct Employee *employee = malloc(sizeof (struct Employee));
+	//Assign birth year
 	employee->birth_year=birth;
+
+	//Assign start year
 	employee->start_year=start;
+
+	//Assign name
 	strcpy(employee->name,name);
 
+	//Return pointer to employee
 	return employee;
 }
 /**Creates array of employees
  *@param n Size to make
- *@param @return Pointer to new struct
+ *@return Pointer to new struct
  */
-struct Employee *makeArrayEmployees(size_t n) {
-	//Allcoate memory
-	struct Employee *e = malloc(n * sizeof(struct Employee *));
-	//Allcoate memory
-	struct Employee *e_temp = malloc(n * sizeof(struct Employee *));
-	//Assignt to keep accuray
-	e_temp = e;
+struct Employee **makeArrayEmployees(size_t n) {
+
+	//Allocate memory for array of employees
+	struct Employee **employees = malloc(n * sizeof(struct Employee *));
+
+	//Build array of employees
 	for(size_t i = 0; i < n; i++) {
-		*e_temp = *makeRandomEmployee();
-		e_temp++;
+			*(employees + i) = makeRandomEmployee();
 	}
-	return e;
+	//return pointer to employees
+	return employees;
+
 }
 /**Create a random employ with random info
  *@return Pointer to struct
  */
 struct Employee *makeRandomEmployee() {
+
 	//Allcoate memory
-	struct Employee *employee = malloc(sizeof *employee);
+	struct Employee *employee = malloc(sizeof (struct Employee ));
+
 	//Birth Year
 	employee->birth_year=getRandomInt();
+
 	//Start year
 	employee->start_year=getRandomInt();
+
 	//Name
 	char* name = getRandomName();
+
+	//Assign name
 	strcpy(employee->name,name);
 
+	//Return pointer to employee
 	return employee;
 }
-
+void changeBirthYear(struct Employee *e) {
+	e->birth_year++;
+}
 /**Shallow copy of new array of employees
  *@param e Pointer to array of employees
  *@param  n size of employees to duplicate
  *@return Pointer to array of new employees
  */
-struct Employee *duplicateEmployees(struct Employee *e,size_t n) {
+struct Employee **duplicateEmployees(struct Employee **e, size_t n) {
 
+	//Allocate memory
+	struct Employee **employee_final = malloc(sizeof(struct Employee *)*n);
 
-	//Allcoate memory
-	//struct Employee *new_e = (struct Employee *)malloc(n * sizeof(struct Employee *));
+	//Loop through and shallow copy via copying the pointers
+	for(size_t i = 0; i < n; i++) {
 
-	//struct Employee *new_e_temp = malloc(size * sizeof(struct Employee *));
+		employee_final[i] = e[i];
+	}
 
-	//struct Employee *employees = malloc(size * sizeof(struct Employee *));
+	//Return pointer to newly duplicated array
+	return employee_final;
+}
+/**Deep Copy of employees
+ *@param e Pointer to array of employees
+ *@param n # of employees to copy
+ *@return Pointer to newly deep copied array
+ */
+struct Employee **deepCopyEmployees(struct Employee **e, size_t n) {
 
-	//employees=e;
-	//new_e_temp = new_e;
+	//Allocate memory
+	struct Employee **new_employees = malloc(n * sizeof(struct Employee *));
 
-	//for(int i = 0; i < n;i++) {
+	//Loop through and deep copy
+	for(size_t i = 0; i < n; i++) {
 
-		//new_e = e[i];
-	//}
-	return 0;
+		//Allocate memory
+		new_employees[i] = malloc(sizeof(struct Employee ));
+
+		//Assign birth year
+		new_employees[i]->birth_year = e[i]->birth_year;
+
+		//Assign start year
+		new_employees[i]->start_year = e[i]->start_year;
+
+		//Assign name
+		strcpy(new_employees[i]->name,e[i]->name);
+
+	}
+	//Return pointer to newly deep copied array
+	return new_employees;
+}
+/**Frees memory from each employee and then the array holding the employees
+ * @param e Pointer pointing to an array holding pointers of employees
+ * @param n # of employees to free
+ */
+void freeEmployees(struct Employee **e, size_t n) {
+
+	//Loop through employees
+	for(int i=0; i<n; i++) {
+
+		//Free memory of employee
+		free(e[i]);
+	}
+	//free array
+	free(e);
 }
 /**Generate a random name
  *@return Return a random name
@@ -102,6 +157,8 @@ char* getRandomName() {
 	}
 	//Add null terminator
 	*temp_Name='\0';
+
+	//Return randomly generated name
 	return name;
 }
 
@@ -109,12 +166,12 @@ char* getRandomName() {
  *@param e Pointer to array of employees
  *@param n Number of employees to print
  */
-void printEmployees(struct Employee *e,size_t n) {
+void printEmployees(struct Employee **e,size_t n) {
 	//Allcoate memory
-	struct Employee *employee = malloc(sizeof(struct Employee*));
 	for(size_t i =0; i < n;i++) {
-		*employee=*e++;
-		printf("Name: %s Start Year: %d Birth Year: %d\n",employee->name,employee->start_year,employee->birth_year);
+
+		printf("Name: %s Start Year: %d Birth Year: %d\n",e[i]->name,e[i]->start_year,e[i]->birth_year);
+
 	}
 }
 /**Print single employee
@@ -123,7 +180,7 @@ void printEmployees(struct Employee *e,size_t n) {
  */
 void printEmployee(struct Employee *e) {
 
-	printf("Name: %s Start Year: %d Birth Year: %d\n",e->name,e->start_year,e->birth_year);
+	printf("Name: %s Start Year: %d Birth Year: %d\n\n",e->name,e->start_year,e->birth_year);
 }
 
 /**Generate random lower case letter
