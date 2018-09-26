@@ -14,6 +14,7 @@ class Ant: public Organism {
 public:
 	Ant();
 	Ant(int x, int y);
+	void breed();
 	virtual ~Ant();
 };
 

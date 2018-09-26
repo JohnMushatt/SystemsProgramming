@@ -6,13 +6,14 @@
  */
 
 #include "Ant.h"
-
+#include <stdlib.h>
 Ant::Ant() {
-	Organism();
 
 }
-
+Ant::Ant(int x, int y) {
+	Organism(x,y);
+}
 Ant::~Ant() {
-	// TODO Auto-generated destructor stub
+
 }
 

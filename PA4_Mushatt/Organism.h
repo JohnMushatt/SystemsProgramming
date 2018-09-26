@@ -18,7 +18,7 @@ public:
 	Organism(int x, int y);
 	virtual ~Organism();
 
-	void move();
+	void move(int x, int y);
 	void breed();
 };
 

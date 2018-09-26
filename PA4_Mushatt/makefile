@@ -1,6 +1,6 @@
 CXXFLAGS = -g -Wall -fmessage-length=0
 
-OBJS =	testFile.o Organism.o Ant.o Doodlebug.o
+OBJS =	testFile.o Organism.o Ant.o Doodlebug.o Board.o
 
 LIBS =
 

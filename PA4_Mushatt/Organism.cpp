@@ -19,7 +19,11 @@ Organism::Organism(int x, int y) {
 	yLocation = y;
 	turnsAlive = 0;
 }
+void Organism::move(int x, int y) {
 
+	xLocation = x;
+	yLocation = y;
+}
 Organism::~Organism() {
 }
 
