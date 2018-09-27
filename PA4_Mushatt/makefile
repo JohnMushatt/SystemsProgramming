@@ -1,6 +1,8 @@
-CXXFLAGS = -g -Wall -fmessage-length=0
+CXXFLAGS = -g -Wall -fmessage-length=0 
 
-OBJS =	testFile.o Organism.o Ant.o Doodlebug.o Board.o
+OBJS =	testFile.o Organism.o Ant.o Doodlebug.o Board.o 
+
+CXX = GPP
 
 LIBS =
 

@@ -6,24 +6,19 @@
  */
 
 #include "Organism.h"
-
+#include "Board.h"
+#include <stdlib.h>
+#include <time.h>
 Organism::Organism() {
 
-	xLocation = 0;
-	yLocation = 0;
-	turnsAlive = 0;
 }
-Organism::Organism(int x, int y) {
 
-	xLocation = x;
-	yLocation = y;
-	turnsAlive = 0;
-}
-void Organism::move(int x, int y) {
-
-	xLocation = x;
-	yLocation = y;
+bool Organism::readyToBreed() {
+	return canBreed;
 }
 Organism::~Organism() {
+
 }
+
+class Organism;
 

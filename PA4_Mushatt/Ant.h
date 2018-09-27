@@ -9,13 +9,13 @@
 #define ANT_H_
 
 #include "Organism.h"
-
+#include "Board.h"
 class Ant: public Organism {
 public:
 	Ant();
 	Ant(int x, int y);
-	void breed();
 	virtual ~Ant();
+	void move(Board *gameBoard);
+	bool isPrey();
 };
-
 #endif /* ANT_H_ */

@@ -6,12 +6,15 @@
  */
 
 #include "Ant.h"
-#include <stdlib.h>
+#define BREED_TIMER 3
 Ant::Ant() {
 
 }
-Ant::Ant(int x, int y) {
-	Organism(x,y);
+void Ant::move(Board *gameBoard) {
+
+}
+bool Ant::isPrey() {
+	return true;
 }
 Ant::~Ant() {
 
