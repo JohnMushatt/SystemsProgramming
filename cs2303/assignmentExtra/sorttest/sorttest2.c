@@ -25,21 +25,22 @@ int main (int argc, const char* argv[]) {
   int i; // array index 
   int num_nums; // How many numbers actually entered on the command line.
   int count;
-
+  int sortToUse;
   // Check that there is as least 1 number
   num_nums = argc - 1;
-  if (num_nums < 1) {
-    printf("Must enter at least 1 number! Exiting.\n");
+  if (num_nums < 2) {
+    printf("Must enter at least 2 numbers! Exiting.\n");
     return 1; // Indicate failure
   }
   count = atoi(argv[1]);
+  sortToUse=atoi(argv[2]);
+  nums = (int*) calloc(count, sizeof(int));
   /* Read all the numbers from the command line and put them into the array */
   for (i = 0; i < count; i++) {
-    nums[i] = rand(); // store into the array
+    nums[i] = rand()%count; // store into the array
   }
-
   // Now print, sort, and print the array, and time how long the sorting took.
-  timesort(nums, num_nums);
+  timesort(nums, count,sortToUse);
 
   return 0; // Indicate success!
 }

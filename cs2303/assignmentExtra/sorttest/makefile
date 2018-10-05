@@ -14,7 +14,6 @@ sorttest2.o: sorttest2.c sort.h
 	gcc $(CFLAGS) -c sorttest2.c
 sort.o: sort.c sort.h
 	gcc $(CFLAGS) -c sort.c
-
 timesort.o: timesort.c sort.h
 	gcc $(CFLAGS) -c timesort.c
 
