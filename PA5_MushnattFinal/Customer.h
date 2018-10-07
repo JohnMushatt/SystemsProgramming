@@ -12,6 +12,12 @@ class Customer {
 public:
 	Customer();
 	virtual ~Customer();
+	Customer(float time);
+	void setEndTime(float time);
+	Customer *nextCustomer;
+private:
+	float startTime;
+	float endTime;
 };
 
 #endif /* CUSTOMER_H_ */

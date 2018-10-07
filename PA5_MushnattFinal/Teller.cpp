@@ -6,10 +6,9 @@
  */
 
 #include "Teller.h"
-
+#include <stdlib.h>
 Teller::Teller() {
-	// TODO Auto-generated constructor stub
-
+	idleTime = rand() % idleTimeConst +1;
 }
 
 Teller::~Teller() {

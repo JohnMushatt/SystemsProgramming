@@ -12,6 +12,9 @@ class Teller {
 public:
 	Teller();
 	virtual ~Teller();
+private:
+	const int idleTimeConst= 600;
+	float idleTime;
 };
 
 #endif /* TELLER_H_ */
