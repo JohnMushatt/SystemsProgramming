@@ -1,7 +1,8 @@
 John Mushatt: Extra Credit Assignment
 
 Obersvations and Conclusions: In the 3 seperate tests, the sorting method using pointer arithmetic (no. 3) operated faster, especially as the # of elements in the array grew. This is odd as modern compilers optimize these kinds of 
-repetive tasks very efficiently, potentialy even more efficient than pointer arithmetic.
+repetive tasks very efficiently, potentialy even more efficient than pointer arithmetic. However as noted in the assignment, the average time difference between array indexing and pointer indexing is very close as there are very much
+the same operation to the compiler.
 
 
 -----------------------------------------------------------------------------------
