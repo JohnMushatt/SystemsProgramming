@@ -14,8 +14,10 @@ class Ant: public Organism {
 public:
 	Ant();
 	Ant(int x, int y);
-	virtual ~Ant();
-	void move(Board *gameBoard);
+	~Ant();
+	void move(int move, Board *gameBoard);
 	bool isPrey();
+	bool readyToBreed();
+	bool isStarving();
 };
 #endif /* ANT_H_ */

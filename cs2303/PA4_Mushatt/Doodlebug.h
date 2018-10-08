@@ -15,15 +15,14 @@ class Doodlebug: public Organism {
 public:
 	Doodlebug();
 	Doodlebug(int x, int y);
-	virtual ~Doodlebug();
-	bool checkStarving();
-	bool canEat(Board *gameBoard);
-	bool eat(Board *gameBoard);
-	void move(Board *gameBoard);
+	~Doodlebug();
+	void eat();
+	void move(int move, Board *gameBoard);
 	bool isPrey();
+	bool isStarving();
+	bool readyToBreed();
 private:
 	int turnsWithoutEating;
-	bool isStarving;
 
 };
 

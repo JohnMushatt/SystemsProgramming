@@ -8,10 +8,14 @@
 #ifndef ORGANISM_H_
 #define ORGANISM_H_
 #include "Board.h"
+#include <time.h>
+#define UP 0
+#define RIGHT 1
+#define DOWN 2
+#define LEFT 3
 class Board;
 class Organism {
-
-	int turnsAlive, xLocation, yLocation;
+private:
 	bool canBreed;
 
 
@@ -19,34 +23,24 @@ public:
 	//Defualt constructor
 	Organism();
 
-	/**
-	 * Constructor with x and y coords
-	 * @param x X coordinate
-	 * @param y Y coordinate
-	 */
 	Organism(int x, int y);
-
-
 	//Deconstructor
 	virtual ~Organism();
 
-	/**
-	 * Move the organism 1 space in the board
-	 * Same across all subclasses
-	 * @param gameBoard Board to make a random move in
-	 */
-	virtual void move(Board *gameBoard) = 0;
+	void resetHasMoved();
 
-	/**
-	 * Return whether the current object is an ant or not
-	 * @return Return true if ant, false if doodlebug
-	 */
+	virtual void move(int move, Board *gameBoard) = 0;
+
+
 	virtual bool isPrey() = 0;
-	/**
-	 * Returns true/false depending if organism can breed
-	 * @return True/false depending on if organism can breed at this moment
-	 */
-	bool readyToBreed();
+
+	virtual bool readyToBreed()=0;
+
+	bool hasMoved;
+	int turnsAlive;
+	int randomMove();
+	virtual bool isStarving()=0;
+	int row, col;
 };
 
 #endif /* ORGANISM_H_ */

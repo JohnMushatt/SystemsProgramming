@@ -10,15 +10,26 @@
 #include <stdlib.h>
 #include <time.h>
 Organism::Organism() {
-
+	row = 0;
+	col = 0;
+	canBreed=false;
+	hasMoved = false;
+	turnsAlive=0;
 }
-
+Organism::Organism(int x, int y) {
+	row = x;
+	col = y;
+	canBreed=false;
+	hasMoved = false;
+	turnsAlive=0;
+}
 bool Organism::readyToBreed() {
 	return canBreed;
 }
+void Organism::resetHasMoved() {
+	hasMoved=false;
+}
 Organism::~Organism() {
-
 }
 
-class Organism;
 
