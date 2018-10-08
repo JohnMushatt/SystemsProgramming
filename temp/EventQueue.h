@@ -16,6 +16,7 @@ public:
 	Event *getTail();
 	Event *removeEvent();
 	bool addEvent(Event *event);
+	int getQueueSize();
 private:
 	Event *head;
 	Event *tail;

@@ -25,7 +25,7 @@ Customer *TellerQueue::processCustomer() {
 			lastCustomer = nullptr;
 
 		}
-		//Set temp to nextcustomer
+		//Set temp to next customer
 		Customer *customer = nextCustomer;
 		//Set head to the next in queue
 		nextCustomer = nextCustomer->nextCustomer;
@@ -43,12 +43,14 @@ Customer *TellerQueue::processCustomer() {
  * @return True if added, false if not
  */
 bool TellerQueue::addCustomer(Customer *customer) {
+	//If queue is empty set next and last to customer and increase size
 	if(size==0) {
 		nextCustomer = customer;
 		lastCustomer = customer;
 		size++;
 		return true;
 	}
+	//If we have a non-empty queue update last customer and size
 	else if(size > 0) {
 		lastCustomer->nextCustomer = customer;
 		lastCustomer= customer;
