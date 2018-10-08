@@ -10,13 +10,11 @@
 
 int main(int argc, char **argv) {
 
-
+	//Create single event queue
 	EventQueue *Bank = new EventQueue();
+	//Create single teller queue
+	TellerQueue *teller = new TellerQueue();
 
-	for(int i = 0; i < 10; i++) {
-		Bank->addEvent(new CustomerEvent());
-		std::cout<<"Customer Event Added"<<std::endl;
-		std::cout<<Bank->getQueueSize()<<std::endl;
 
 
 	}

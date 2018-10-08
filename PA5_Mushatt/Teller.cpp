@@ -8,9 +8,11 @@
 #include "Teller.h"
 #include <stdlib.h>
 Teller::Teller() {
-	idleTime = rand() % idleTimeConst +1;
+	setIdleTime();
 }
-
+void Teller::setIdleTime() {
+	idleTime=rand() % 150+1;
+}
 Teller::~Teller() {
 	// TODO Auto-generated destructor stub
 }

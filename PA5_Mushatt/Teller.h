@@ -15,6 +15,7 @@ public:
 private:
 	const int idleTimeConst= 600;
 	float idleTime;
+	void setIdleTime();
 };
 
 #endif /* TELLER_H_ */
