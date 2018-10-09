@@ -7,6 +7,7 @@
 
 #include "TellerQueue.h"
 #include "Customer.h"
+#include <iostream>
 TellerQueue::TellerQueue() {
 	nextCustomer = nullptr;
 	lastCustomer = nullptr;
@@ -52,12 +53,36 @@ bool TellerQueue::addCustomer(Customer *customer) {
 	}
 	//If we have a non-empty queue update last customer and size
 	else if(size > 0) {
-		lastCustomer->nextCustomer = customer;
-		lastCustomer= customer;
+		lastCustomer->setNextCustomer(customer);
+		lastCustomer = customer;
+
 		size++;
 		return true;
 	}
 	return false;
+}
+/**
+ * Returns the last customer in the queue
+ * @return Pointer to last customer
+ */
+Customer *TellerQueue::getLastCustomer(){
+	if(size>0) {
+		return lastCustomer;
+	}
+	return nullptr;
+}
+/**
+ * Prints out teller queue
+ */
+void TellerQueue::printQueue() {
+	int i = 0;
+	Customer *cust = nextCustomer;
+	std::cout<<"Teller line size: "<<size<<std::endl;
+	while(i < size) {
+		std::cout<<"Customer at position: " << i<<" Time arrived: "<<cust->getTime()<<std::endl;
+		cust = cust->nextCustomer;
+		i++;
+	}
 }
 TellerQueue::~TellerQueue() {
 	// TODO Auto-generated destructor stub

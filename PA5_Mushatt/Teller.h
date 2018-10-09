@@ -14,7 +14,7 @@ public:
 	virtual ~Teller();
 private:
 	const int idleTimeConst= 600;
-	float idleTime;
+	int idleTime;
 	void setIdleTime();
 };
 

@@ -15,11 +15,12 @@ public:
 	virtual ~TellerQueue();
 	Customer *processCustomer();
 	bool addCustomer(Customer *customer);
+	Customer *getLastCustomer();
+	void printQueue();
 private:
 	Customer *nextCustomer;
 	Customer *lastCustomer;
 	int size;
-	Teller *teller;
 };
 
 #endif /* TELLERQUEUE_H_ */
