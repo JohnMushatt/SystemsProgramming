@@ -9,6 +9,7 @@
 #define TELLERQUEUE_H_
 #include "Customer.h"
 #include "Teller.h"
+class Customer;
 class TellerQueue {
 public:
 	TellerQueue();

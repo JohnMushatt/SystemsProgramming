@@ -29,28 +29,30 @@ Customer *TellerQueue::getNextCustomer() {
  * @return Pointer to next customer
  */
 Customer *TellerQueue::processCustomer(int processingTime) {
-
+	std::cout<<"\nProcessing Customer"<<std::endl;
 	//if queue is more than 0
 	if (size > 0) {
 		int currentTime = time(NULL);
 		int elapsedTime = 0;
-		while (currentTime + elapsedTime < (processingTime/1000000)) {
-			elapsedTime = time(NULL) - currentTime;
+		while (elapsedTime < (processingTime)) {
+			elapsedTime =time(NULL) - currentTime;
 		}
 		//If only 1 person queue
-					if (size - 1 == 0) {
-						nextCustomer = nullptr;
-						lastCustomer = nullptr;
+		if (size - 1 == 0) {
+			nextCustomer = nullptr;
+			lastCustomer = nullptr;
 
-					}
-					//Set temp to next customer
-					Customer *customer = nextCustomer;
-					//Set head to the next in queue
-					nextCustomer = nextCustomer->nextCustomer;
-					//Reduce size of queue
-					size--;
-
-					return customer;
+		}
+		//Set temp to next customer
+		Customer *customer = nextCustomer;
+		//Set head to the next in queue
+		if (customer != nullptr) {
+			nextCustomer = nextCustomer->nextCustomer;
+			//Reduce size of queue
+			size--;
+			std::cout<<"Customer Processed\n"<<std::endl;
+			return customer;
+		}
 	}
 	//If empty queue return nullptr
 	return nullptr;
