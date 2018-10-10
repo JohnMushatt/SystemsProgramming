@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
 	//Create single event queue
 	EventQueue *Bank = new EventQueue();
 	//Create single teller queue
-	TellerQueue *teller = new TellerQueue();
+	TellerQueue *tellerLine = new TellerQueue();
 	int lastTime = 0;
 	std::array<Customer *, 10> customers;
 	for (int i = 0; i < 10; i++) {
@@ -23,9 +23,9 @@ int main(int argc, char **argv) {
 
 			if (num > lastTime) {
 				customers.at(i) = new Customer(num);
-				std::cout << "Last in line: " << teller->getLastCustomer()
+				std::cout << "Last in line: " << tellerLine->getLastCustomer()
 						<< std::endl;
-				teller->addCustomer(customers.at(i));
+				tellerLine->addCustomer(customers.at(i));
 				numChanged = true;
 			}
 			lastTime = num;
@@ -34,9 +34,24 @@ int main(int argc, char **argv) {
 		std::cout << "Customer added to line to teller queue" << std::endl;
 
 	}
-	teller->printQueue();
-	teller->processCustomer();
-	teller->printQueue();
-	std::cout << "Program Finished" << std::endl;
+
+	//Print tellerLine after customers have been added to it
+	tellerLine->printQueue();
+
+	//Create a teller
+	Teller *teller = new Teller();
+	//Begin looping for simulation
+	bool simulationStillRunning = true;
+	//Loop while we are still running the simulation
+	std::cout<<"Beginning Simulation!"<<std::endl;
+
+	while (simulationStillRunning) {
+		if (teller->onBreak == false) {
+			tellerLine->processCustomer(teller->getIdleTime());
+		}
+	}
+	std::cout<<"Simulation Ending!"<<std::endl;
+
+	std::cout <<"Program Finished" << std::endl;
 	return 0;
 }

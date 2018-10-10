@@ -1,25 +1,25 @@
-CLFFLAGS = -g -Wall
+CFLAGS = -g -Wall
 
 all: PA5_Mushatt
 
 PA5_Mushatt: Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o	TellerEvent.o main.o
-	g++	Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o TellerEvent.o main.o -o PA5_Mushatt
+	g++	$(CFLAGS) Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o TellerEvent.o main.o -o PA5_Mushatt
 Customer.o:	Customer.cpp Customer.h
-	g++ -c	Customer.cpp
-Event.o:	Event.cpp Event.h
-	g++	-c	Event.cpp
-EventQueue.o:	EventQueue.cpp EventQueue.h
-	g++ -c	EventQueue.cpp
-Teller.o:	Teller.cpp	Teller.h
-	g++ -c	Teller.cpp
-TellerQueue.o:	TellerQueue.cpp	TellerQueue.h
-	g++ -c	TellerQueue.cpp
+	g++ $(CFLAGS) -c	Customer.cpp
+Event.o: Event.cpp Event.h
+	g++	$(CFLAGS) -c	Event.cpp
+EventQueue.o: EventQueue.cpp EventQueue.h
+	g++ $(CFLAGS) -c	EventQueue.cpp
+Teller.o: Teller.cpp	Teller.h
+	g++ $(CFLAGS) -c	Teller.cpp
+TellerQueue.o: TellerQueue.cpp TellerQueue.h
+	g++ $(CFLAGS) -c	TellerQueue.cpp
 CustomerEvent.o: CustomerEvent.cpp CustomerEvent.h
-	g++ -c	CustomerEvent.cpp
+	g++ $(CFLAGS) -c	CustomerEvent.cpp
 TellerEvent.o: TellerEvent.cpp TellerEvent.h
-	g++ -c	TellerEvent.cpp
+	g++ $(CFLAGS) -c	TellerEvent.cpp
 main.o:	main.cpp
-	g++	-c	main.cpp
+	g++	$(CFLAGS) -c	main.cpp
 docs:
 	Doxygen 
 clean:

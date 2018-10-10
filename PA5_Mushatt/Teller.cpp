@@ -9,9 +9,34 @@
 #include <stdlib.h>
 Teller::Teller() {
 	setIdleTime();
+	onBreak=false;
+
 }
+/**
+ * Sets idle time of teller
+ */
 void Teller::setIdleTime() {
 	idleTime=rand() % 150+1;
+}
+/**
+ * Returns idle time of teller
+ * @return Time to idle
+ */
+int Teller::getIdleTime(){
+	return idleTime;
+}
+/**
+ * Check if the teller has any customers in some queue before changing idle status
+ * @param *line Pointer to tellerqueue
+ */
+void Teller::updateBreakStatus(TellerQueue *line) {
+	if(line->getNextCustomer()!=nullptr) {
+		onBreak=false;
+	}
+	else {
+		onBreak = true;
+	}
+
 }
 Teller::~Teller() {
 	// TODO Auto-generated destructor stub
