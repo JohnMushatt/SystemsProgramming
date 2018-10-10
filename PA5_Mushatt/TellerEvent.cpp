@@ -7,7 +7,7 @@
 
 #include "TellerEvent.h"
 
-TellerEvent::TellerEvent() {
+TellerEvent::TellerEvent(int time):Event(time) {
 	// TODO Auto-generated constructor stub
 
 }

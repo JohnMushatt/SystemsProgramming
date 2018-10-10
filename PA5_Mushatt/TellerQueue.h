@@ -14,7 +14,7 @@ class TellerQueue {
 public:
 	TellerQueue();
 	virtual ~TellerQueue();
-	Customer *processCustomer(int time);
+	Customer *processCustomer();
 	bool addCustomer(Customer *customer);
 	Customer *getLastCustomer();
 	void printQueue();
@@ -22,6 +22,7 @@ public:
 private:
 	Customer *nextCustomer;
 	Customer *lastCustomer;
+	void sortQueue();
 	int size;
 };
 

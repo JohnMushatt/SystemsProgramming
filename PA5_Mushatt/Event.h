@@ -10,9 +10,13 @@
 
 class Event {
 public:
-	Event();
+	Event(int time);
 	virtual ~Event();
 	Event *nextEvent;
+	int getEventTime();
+
+private:
+	int time;
 };
 
 #endif /* EVENT_H_ */

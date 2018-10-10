@@ -7,8 +7,8 @@
 
 #ifndef CUSTOMER_H_
 #define CUSTOMER_H_
-
-class Customer {
+#include "Actor.h"
+class Customer:public Actor{
 public:
 	Customer();
 	virtual ~Customer();

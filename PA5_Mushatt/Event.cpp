@@ -7,10 +7,13 @@
 
 #include "Event.h"
 
-Event::Event() {
+Event::Event(int time) {
 	nextEvent=nullptr;
+	this->time = time;
 }
-
+int Event::getEventTime(){
+	return time;
+}
 Event::~Event() {
 	// TODO Auto-generated destructor stub
 }

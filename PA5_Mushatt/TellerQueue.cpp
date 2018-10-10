@@ -28,15 +28,10 @@ Customer *TellerQueue::getNextCustomer() {
  * Remove and return the next customer
  * @return Pointer to next customer
  */
-Customer *TellerQueue::processCustomer(int processingTime) {
-	std::cout<<"\nProcessing Customer"<<std::endl;
+Customer *TellerQueue::processCustomer() {
+	std::cout << "\nProcessing Customer" << std::endl;
 	//if queue is more than 0
 	if (size > 0) {
-		int currentTime = time(NULL);
-		int elapsedTime = 0;
-		while (elapsedTime < (processingTime)) {
-			elapsedTime =time(NULL) - currentTime;
-		}
 		//If only 1 person queue
 		if (size - 1 == 0) {
 			nextCustomer = nullptr;
@@ -50,12 +45,40 @@ Customer *TellerQueue::processCustomer(int processingTime) {
 			nextCustomer = nextCustomer->nextCustomer;
 			//Reduce size of queue
 			size--;
-			std::cout<<"Customer Processed\n"<<std::endl;
+			std::cout << "Customer Processed\n" << std::endl;
 			return customer;
 		}
 	}
 	//If empty queue return nullptr
 	return nullptr;
+}
+/**
+ * Sorts the queue after each call to addCustomer
+ */
+void TellerQueue::sortQueue() {
+	bool unSorted = false;
+	Customer *currentCust = nextCustomer;
+	while (unSorted) {
+		//While we are not at the end of the queue
+		while (currentCust != nullptr) {
+			Customer *next = currentCust->nextCustomer;
+			//If the current customer has arrived later than the next customer, switch them
+			if (currentCust->getTime() > next->getTime()) {
+				unSorted = true;
+				//Set temp to current customer
+				Customer *temp = next;
+				//Set next to current
+				next = currentCust;
+				//Set next's nextCustomer to temp's nextCustomer
+				next->nextCustomer=temp->nextCustomer;
+				//Set currentCust to the temp
+				currentCust = temp;
+				//Set the currentCust's nextCustomer to next
+				currentCust->nextCustomer=next;
+			}
+			currentCust = currentCust->nextCustomer;
+		}
+	}
 }
 /**
  * Add customer to queue

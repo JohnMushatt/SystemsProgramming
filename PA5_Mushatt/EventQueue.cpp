@@ -44,8 +44,11 @@ bool EventQueue::addEvent(Event *event) {
 			size++;
 			return true;
 		} else {
+			//Link tail to new tail
 			tail->nextEvent=event;
+			//set tail to new tail
 			tail=event;
+			//Increase size
 			size++;
 			return true;
 		}

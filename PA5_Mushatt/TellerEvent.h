@@ -12,7 +12,7 @@
 
 class TellerEvent: public Event {
 public:
-	TellerEvent();
+	TellerEvent(int time);
 	virtual ~TellerEvent();
 };
 

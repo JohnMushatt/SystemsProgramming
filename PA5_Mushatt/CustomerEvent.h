@@ -12,8 +12,9 @@
 
 class CustomerEvent: public Event {
 public:
-	CustomerEvent();
+	CustomerEvent(int time);
 	virtual ~CustomerEvent();
+private:
 };
 
 #endif /* CUSTOMEREVENT_H_ */

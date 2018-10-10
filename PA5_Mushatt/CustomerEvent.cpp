@@ -7,8 +7,7 @@
 
 #include "CustomerEvent.h"
 
-CustomerEvent::CustomerEvent() {
-	// TODO Auto-generated constructor stub
+CustomerEvent::CustomerEvent(int time):Event(time) {
 
 }
 
