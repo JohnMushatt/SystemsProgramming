@@ -22,26 +22,28 @@ int main(int argc, char **argv) {
 	int simTime = atoi(argv[3]) * 60;
 	int serviceTime = atoi(argv[4]) * 60;
 	//Create a teller
-	Teller *teller = new Teller();
+	//Teller *teller = new Teller();
 	int seed;
 	if (argc == 6) {
 		seed = atoi(argv[5]);
 	} else {
 		seed = time(NULL);
 	}
-	std::cout << "Simulation will run with: " << numCust << " Customers "
-			<< numTeller << " Tellers " << simTime << " Seconds " << serviceTime
-			<< " is the average service time  " << seed << " Is the seed"
-			<< std::endl;
+	std::cout << "Simulation will run with: " << numCust << " Customer(s) "
+			<< numTeller << " Teller(s) Sim Time: " << simTime << " Seconds "
+			<< serviceTime << " is the average service time in seconds  "
+			<< seed << " Is the seed" << std::endl;
 
 	//Create single event queue
-	EventQueue *Bank = new EventQueue();
+	EventQueue *Bank = new EventQueue(numTeller);
 
 	//Create single teller queue
 	TellerQueue *tellerLine = new TellerQueue();
 
 	int custGenerated = 0;
 	int currentTime = 0;
+	std::cout << "Beginning Simulation!" << std::endl;
+
 	while (currentTime < simTime) {
 
 		//Generate customers at random times
@@ -49,20 +51,21 @@ int main(int argc, char **argv) {
 			if (rand() % 100 < 50) {
 
 				//Create customer, add them to event queue
-				Customer *cust = new Customer(rand() % simTime);
-				Bank->addEvent(new CustomerEvent(cust->getTime()));
+				Bank->addEvent(new CustomerEvent(rand()%20+1));
+				std::cout<<"CustomerEvent Added"<<std::endl;
 				//Increment num of generated customers
 				custGenerated++;
 
 			}
 		}
 		//If there are events to process
-		if (Bank->getQueueSize() > 0) {
-
-
+		if(Bank->getQueueSize() > 0) {
+			Bank->removeEvent();
 		}
 		currentTime++;
 	}
+	std::cout << "Simulation Ending!" << std::endl;
+
 
 //Print tellerLine after customers have been added to it
 	tellerLine->printQueue();
@@ -71,7 +74,7 @@ int main(int argc, char **argv) {
 	bool simulationStillRunning = true;
 //Beginning time
 //Loop while we are still running the simulation
-	std::cout << "Beginning Simulation!" << std::endl;
+	/*
 	int customersLeft = numCust;
 	while (currentTime < simTime) {
 		if (tellerLine->getNextCustomer() == nullptr) {
@@ -87,8 +90,7 @@ int main(int argc, char **argv) {
 		}
 		currentTime++;
 	}
-	std::cout << "Simulation Ending!" << std::endl;
-
+*/
 	std::cout << "Program Finished" << std::endl;
 	return 0;
 }

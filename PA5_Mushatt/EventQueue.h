@@ -8,15 +8,19 @@
 #ifndef EVENTQUEUE_H_
 #define EVENTQUEUE_H_
 #include "Event.h"
+#include <vector>
 class EventQueue {
 public:
-	EventQueue();
+	EventQueue(int nTellers);
 	virtual ~EventQueue();
 	Event *getHead();
 	Event *getTail();
 	Event *removeEvent();
-	bool addEvent(Event *event);
+	void addEvent(Event *event);
 	int getQueueSize();
+	std::vector<TellerQueue *> tellers;
+	int lastQueueUsed;
+
 private:
 	Event *head;
 	Event *tail;

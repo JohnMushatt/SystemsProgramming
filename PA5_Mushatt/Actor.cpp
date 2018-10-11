@@ -9,7 +9,6 @@
 
 Actor::Actor() {
 	// TODO Auto-generated constructor stub
-
 }
 
 Actor::~Actor() {

@@ -19,9 +19,10 @@ public:
 	Customer *getLastCustomer();
 	void printQueue();
 	Customer *getNextCustomer();
+	int getQueueSize();
 private:
-	Customer *nextCustomer;
-	Customer *lastCustomer;
+	Customer *head;
+	Customer *tail;
 	void sortQueue();
 	int size;
 };

@@ -10,7 +10,9 @@
 CustomerEvent::CustomerEvent(int time):Event(time) {
 
 }
-
+void CustomerEvent::action(TellerQueue *tQueue) {
+	tQueue->addCustomer(new Customer(time));
+}
 CustomerEvent::~CustomerEvent() {
 	// TODO Auto-generated destructor stub
 }

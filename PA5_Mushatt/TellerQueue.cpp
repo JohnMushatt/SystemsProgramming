@@ -9,8 +9,8 @@
 #include "Customer.h"
 #include <iostream>
 TellerQueue::TellerQueue() {
-	nextCustomer = nullptr;
-	lastCustomer = nullptr;
+	head = nullptr;
+	tail = nullptr;
 	size = 0;
 }
 
@@ -20,7 +20,7 @@ TellerQueue::TellerQueue() {
  */
 Customer *TellerQueue::getNextCustomer() {
 	if (size > 0) {
-		return nextCustomer;
+		return head;
 	}
 	return nullptr;
 }
@@ -34,15 +34,15 @@ Customer *TellerQueue::processCustomer() {
 	if (size > 0) {
 		//If only 1 person queue
 		if (size - 1 == 0) {
-			nextCustomer = nullptr;
-			lastCustomer = nullptr;
+			head = nullptr;
+			tail = nullptr;
 
 		}
 		//Set temp to next customer
-		Customer *customer = nextCustomer;
+		Customer *customer = head;
 		//Set head to the next in queue
 		if (customer != nullptr) {
-			nextCustomer = nextCustomer->nextCustomer;
+			head = head->nextCustomer;
 			//Reduce size of queue
 			size--;
 			std::cout << "Customer Processed\n" << std::endl;
@@ -57,7 +57,7 @@ Customer *TellerQueue::processCustomer() {
  */
 void TellerQueue::sortQueue() {
 	bool unSorted = false;
-	Customer *currentCust = nextCustomer;
+	Customer *currentCust = head;
 	while (unSorted) {
 		//While we are not at the end of the queue
 		while (currentCust != nullptr) {
@@ -88,15 +88,15 @@ void TellerQueue::sortQueue() {
 bool TellerQueue::addCustomer(Customer *customer) {
 	//If queue is empty set next and last to customer and increase size
 	if (size == 0) {
-		nextCustomer = customer;
-		lastCustomer = customer;
+		head = customer;
+		tail = customer;
 		size++;
 		return true;
 	}
 	//If we have a non-empty queue update last customer and size
 	else if (size > 0) {
-		lastCustomer->setNextCustomer(customer);
-		lastCustomer = customer;
+		tail->setNextCustomer(customer);
+		tail = customer;
 
 		size++;
 		return true;
@@ -109,7 +109,7 @@ bool TellerQueue::addCustomer(Customer *customer) {
  */
 Customer *TellerQueue::getLastCustomer() {
 	if (size > 0) {
-		return lastCustomer;
+		return tail;
 	}
 	return nullptr;
 }
@@ -118,7 +118,7 @@ Customer *TellerQueue::getLastCustomer() {
  */
 void TellerQueue::printQueue() {
 	int i = 0;
-	Customer *cust = nextCustomer;
+	Customer *cust = head;
 	std::cout << "Teller line size: " << size << std::endl;
 	while (i < size) {
 		std::cout << "Customer at position: " << i << " Time arrived: "
@@ -127,7 +127,13 @@ void TellerQueue::printQueue() {
 		i++;
 	}
 }
+/**
+ * Returns size of teller queue
+ * @return Size of queue
+ */
+int TellerQueue::getQueueSize() {
+	return size;
+}
 TellerQueue::~TellerQueue() {
-	// TODO Auto-generated destructor stub
 }
 

@@ -16,7 +16,7 @@ Teller::Teller() {
  * Sets idle time of teller
  */
 void Teller::setIdleTime() {
-	idleTime=rand() % 1+1;
+	idleTime=rand() % 1+1; //FIX THIS
 }
 /**
  * Returns idle time of teller

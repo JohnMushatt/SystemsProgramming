@@ -1,9 +1,9 @@
 CFLAGS = -g -Wall
 
-all: PA5_Mushatt 
+all: qSim 
 
-PA5_Mushatt: Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o	TellerEvent.o main.o Actor.o CustomerArrivalEvent.o
-	g++	$(CFLAGS) Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o TellerEvent.o	main.o	CustomerArrivalEvent.o Actor.o -o PA5_Mushatt
+qSim: Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o	TellerEvent.o main.o Actor.o
+	g++	$(CFLAGS) Customer.o Event.o EventQueue.o Teller.o TellerQueue.o CustomerEvent.o TellerEvent.o	main.o Actor.o -o qSim
 Customer.o:	Customer.cpp Customer.h
 	g++ $(CFLAGS) -c	Customer.cpp
 Event.o: Event.cpp Event.h
@@ -22,9 +22,7 @@ main.o:	main.cpp
 	g++	$(CFLAGS) -c	main.cpp
 Actor.o: Actor.cpp Actor.h
 	g++	$(CFLAGS) -c	Actor.cpp
-CustomerArrivalEvent.o: CustomerArrivalEvent.cpp CustomerArrivalEvent.h
-	g++ $(CFLAGS) -c	CustomerArrivalEvent.cpp
 docs:
 	Doxygen 
 clean:
-	rm -f *.o PA5_Mushatt
+	rm -f *.o qSim
