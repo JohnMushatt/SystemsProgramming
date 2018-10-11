@@ -49,48 +49,25 @@ int main(int argc, char **argv) {
 		//Generate customers at random times
 		if (custGenerated < numCust) {
 			if (rand() % 100 < 50) {
-
+				Event *event = new CustomerEvent(rand()%100+1);
 				//Create customer, add them to event queue
-				Bank->addEvent(new CustomerEvent(rand()%20+1));
-				std::cout<<"CustomerEvent Added"<<std::endl;
+				Bank->addEvent(event);
+				std::cout<<"CustomerEvent Added with time: "<< event->getEventTime() <<" EventQueue size: "<<Bank->getQueueSize()<<std::endl;
 				//Increment num of generated customers
 				custGenerated++;
 
 			}
 		}
-		//If there are events to process
-		if(Bank->getQueueSize() > 0) {
-			Bank->removeEvent();
-		}
+
 		currentTime++;
 	}
+	Bank->printEventQueue();
+	Bank->removeEvent();
+	Bank->printTellerQueues();
+	Bank->removeEvent();
+	std::cout<<"\n\n";
+	Bank->printTellerQueues();
 	std::cout << "Simulation Ending!" << std::endl;
-
-
-//Print tellerLine after customers have been added to it
-	tellerLine->printQueue();
-
-//Begin looping for simulation
-	bool simulationStillRunning = true;
-//Beginning time
-//Loop while we are still running the simulation
-	/*
-	int customersLeft = numCust;
-	while (currentTime < simTime) {
-		if (tellerLine->getNextCustomer() == nullptr) {
-			teller->updateBreakStatus(tellerLine);
-		} else if (teller->onBreak == false) {
-			std::cout << "Time before processing: " << currentTime << std::endl;
-			while (currentTime < serviceTime) {
-				currentTime++;
-			}
-			tellerLine->processCustomer();
-			customersLeft--;
-			std::cout << "Time after processing: " << currentTime << std::endl;
-		}
-		currentTime++;
-	}
-*/
 	std::cout << "Program Finished" << std::endl;
 	return 0;
 }

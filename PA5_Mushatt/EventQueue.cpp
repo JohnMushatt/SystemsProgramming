@@ -7,13 +7,14 @@
 
 #include "EventQueue.h"
 #include "Event.h"
+#include <iostream>
 EventQueue::EventQueue(int nTellers) {
 	// TODO Auto-generated constructor stub
 	head = nullptr;
-	tail= nullptr;
+	tail = nullptr;
 	size = 0;
-	lastQueueUsed=-1;
-	for(int i = 0;i<nTellers;i++) {
+	lastQueueUsed = -1;
+	for (int i = 0; i < nTellers; i++) {
 		this->tellers.push_back(new TellerQueue());
 	}
 
@@ -35,52 +36,60 @@ Event *EventQueue::getTail() {
 	return nullptr;
 }
 /**
- * Add an event to the event queue
+ * Prints out the EventQueue
+ */
+void EventQueue::printEventQueue() {
+	int i = 0;
+	Event *event = head;
+	std::cout << "EventQueue size: " << getQueueSize() << std::endl;
+	while (i < size) {
+		std::cout << "Event at position: " << i << " Event time: "
+				<< event->time << std::endl;
+		event = event->nextEvent;
+		i++;
+	}
+}
+/**
+ * Prints the teller queues maintained by the eventqueue
+ *
+ */
+void EventQueue::printTellerQueues() {
+	for (unsigned int i = 0; i < tellers.size(); i++) {
+		std::cout << "Teller #: " << i << " ";
+		tellers.at(i)->printQueue();
+	}
+}
+/**
+ * Adds an event in an ordered Linked-list, while maintaining order
  * @param *event Pointer to event to add
  * @return True if event added successfully , false if not added
  */
 void EventQueue::addEvent(Event *event) {
 	Event *current;
-	if((head==nullptr) or (head->time >= event->time)) {
+	if ((head == nullptr) or (head->time >= event->time)) {
 		event->nextEvent = head;
 		head = event;
-	}
-	else {
+		size++;
+	} else {
 
 		current = head;
-		while((current->nextEvent!=nullptr) and (current->nextEvent->time <event->time)) {
+		while ((current->nextEvent != nullptr)
+				and (current->nextEvent->time < event->time)) {
 			current = current->nextEvent;
 		}
 		event->nextEvent = current->nextEvent;
-		current->nextEvent=event;
+		current->nextEvent = event;
+		size++;
 	}
-
-	/*	if (event != nullptr) {
-		if (size == 0) {
-			head = event;
-			tail = event;
-			event->nextEvent=nullptr;
-			size++;
-			return true;
-		} else {
-			//Link tail to new tail
-			tail->nextEvent=event;
-			//set tail to new tail
-			tail=event;
-			//Increase size
-			size++;
-			return true;
-		}
-	}*/
 }
 /**
  * Remove head of queue and set next event to be the head
  * @return Pointer to recently removed event, if nullptr it means queue is empty
  */
-Event *EventQueue::removeEvent(){
+Event *EventQueue::removeEvent() {
 
 	//If we can remove the head
-	if(size>0) {
+	if (size > 0) {
 		//Maintain head
 		Event *event = head;
 		//Set head to the the nextEvent
@@ -89,24 +98,33 @@ Event *EventQueue::removeEvent(){
 		size--;
 		//Add or remove customer from a teller queue
 		TellerQueue *tQueue;
-
-		//Compare ith teller to jth teller, if i is smaller than rest use i
-		for(unsigned int i = 0; i<tellers.size()-1;i++) {
-			bool smallQueue = false;
-			for(unsigned int j = 1; j < tellers.size();j++) {
-				if(tellers.at(i)->getQueueSize()<tellers.at(j)->getQueueSize()) {
-					smallQueue=true;
-				}
-				else {
-					smallQueue=false;
+		int tellerIndex = 0;
+		unsigned int allSame = 0;
+		//If there is only 1 teller
+		if (tellers.size() == 1) {
+			event->action(tellers.at(0));
+		} else {
+			//Compare ith teller to jth teller, if i is smaller than rest use i
+			for (unsigned int i = 0; i < tellers.size(); i++) {
+				//If the current smallest queue and the ith queue are the same, keep allSame True
+				if (tellers.at(i)->getQueueSize()
+						== tellers.at(tellerIndex)->getQueueSize()) {
+					allSame++;
+				} else if (tellers.at(i)->getQueueSize()
+						< tellers.at(tellerIndex)->getQueueSize()) {
+					//New smallest queue index
+					tellerIndex = i;
+					tQueue= tellers.at(tellerIndex);
+					allSame = false;
 				}
 			}
-			if(smallQueue) {
-				tQueue = tellers.at(i);
-				i = tellers.size();
+			if(allSame==tellers.size()) {
+				event->action(tellers.at(rand() % (tellers.size())));
+			}
+			else {
+				event->action(tQueue);
 			}
 		}
-		return event;
 	}
 	return nullptr;
 }

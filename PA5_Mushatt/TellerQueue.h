@@ -23,7 +23,6 @@ public:
 private:
 	Customer *head;
 	Customer *tail;
-	void sortQueue();
 	int size;
 };
 

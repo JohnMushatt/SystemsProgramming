@@ -52,34 +52,7 @@ Customer *TellerQueue::processCustomer() {
 	//If empty queue return nullptr
 	return nullptr;
 }
-/**
- * Sorts the queue after each call to addCustomer
- */
-void TellerQueue::sortQueue() {
-	bool unSorted = false;
-	Customer *currentCust = head;
-	while (unSorted) {
-		//While we are not at the end of the queue
-		while (currentCust != nullptr) {
-			Customer *next = currentCust->nextCustomer;
-			//If the current customer has arrived later than the next customer, switch them
-			if (currentCust->getTime() > next->getTime()) {
-				unSorted = true;
-				//Set temp to current customer
-				Customer *temp = next;
-				//Set next to current
-				next = currentCust;
-				//Set next's nextCustomer to temp's nextCustomer
-				next->nextCustomer=temp->nextCustomer;
-				//Set currentCust to the temp
-				currentCust = temp;
-				//Set the currentCust's nextCustomer to next
-				currentCust->nextCustomer=next;
-			}
-			currentCust = currentCust->nextCustomer;
-		}
-	}
-}
+
 /**
  * Add customer to queue
  * @param *customer Pointer to customer
@@ -121,7 +94,7 @@ void TellerQueue::printQueue() {
 	Customer *cust = head;
 	std::cout << "Teller line size: " << size << std::endl;
 	while (i < size) {
-		std::cout << "Customer at position: " << i << " Time arrived: "
+		std::cout << "Customer position: " << i << " Time arrived: "
 				<< cust->getTime() << std::endl;
 		cust = cust->nextCustomer;
 		i++;

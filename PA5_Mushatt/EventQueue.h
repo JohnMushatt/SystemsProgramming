@@ -19,6 +19,9 @@ public:
 	void addEvent(Event *event);
 	int getQueueSize();
 	std::vector<TellerQueue *> tellers;
+	void printEventQueue();
+	void printTellerQueues();
+
 	int lastQueueUsed;
 
 private:
