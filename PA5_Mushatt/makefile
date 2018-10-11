@@ -25,4 +25,4 @@ Actor.o: Actor.cpp Actor.h
 docs:
 	Doxygen 
 clean:
-	rm -f *.o qSim
+	rm -f *.o qSim	

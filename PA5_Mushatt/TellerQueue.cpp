@@ -32,20 +32,21 @@ Customer *TellerQueue::processCustomer() {
 	std::cout << "\nProcessing Customer" << std::endl;
 	//if queue is more than 0
 	if (size > 0) {
-		//If only 1 person queue
-		if (size - 1 == 0) {
-			head = nullptr;
-			tail = nullptr;
-
-		}
 		//Set temp to next customer
 		Customer *customer = head;
+
+		//If only 1 person queue
+		if (size == 1) {
+			head = nullptr;
+			tail = nullptr;
+			size--;
+			return customer;
+		}
 		//Set head to the next in queue
-		if (customer != nullptr) {
+		else if (customer != nullptr) {
 			head = head->nextCustomer;
 			//Reduce size of queue
 			size--;
-			std::cout << "Customer Processed\n" << std::endl;
 			return customer;
 		}
 	}

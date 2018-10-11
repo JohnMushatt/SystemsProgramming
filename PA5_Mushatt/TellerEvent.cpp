@@ -12,6 +12,14 @@ TellerEvent::TellerEvent(int time):Event(time) {
 
 }
 void TellerEvent::action(TellerQueue *tQueue) {
+	//If there are customers to process
+	if(tQueue->getNextCustomer()!=nullptr) {
+		tQueue->processCustomer();
+	}
+	// If there are no more customers, go on break
+	else {
+		tQueue->teller->updateBreakStatus(tQueue);
+	}
 
 }
 TellerEvent::~TellerEvent() {

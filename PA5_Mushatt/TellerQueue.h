@@ -10,6 +10,7 @@
 #include "Customer.h"
 #include "Teller.h"
 class Customer;
+class Teller;
 class TellerQueue {
 public:
 	TellerQueue();
@@ -20,6 +21,7 @@ public:
 	void printQueue();
 	Customer *getNextCustomer();
 	int getQueueSize();
+	Teller *teller;
 private:
 	Customer *head;
 	Customer *tail;

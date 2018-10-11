@@ -120,9 +120,11 @@ Event *EventQueue::removeEvent() {
 			}
 			if(allSame==tellers.size()) {
 				event->action(tellers.at(rand() % (tellers.size())));
+				delete event;
 			}
 			else {
 				event->action(tQueue);
+				delete event;
 			}
 		}
 	}

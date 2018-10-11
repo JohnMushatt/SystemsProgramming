@@ -37,9 +37,6 @@ int main(int argc, char **argv) {
 	//Create single event queue
 	EventQueue *Bank = new EventQueue(numTeller);
 
-	//Create single teller queue
-	TellerQueue *tellerLine = new TellerQueue();
-
 	int custGenerated = 0;
 	int currentTime = 0;
 	std::cout << "Beginning Simulation!" << std::endl;
@@ -47,26 +44,32 @@ int main(int argc, char **argv) {
 	while (currentTime < simTime) {
 
 		//Generate customers at random times
-		if (custGenerated < numCust) {
+		while (custGenerated < numCust) {
 			if (rand() % 100 < 50) {
-				Event *event = new CustomerEvent(rand()%100+1);
+				Event *event = new CustomerEvent(rand() % 100 + 1);
 				//Create customer, add them to event queue
 				Bank->addEvent(event);
-				std::cout<<"CustomerEvent Added with time: "<< event->getEventTime() <<" EventQueue size: "<<Bank->getQueueSize()<<std::endl;
+				std::cout << "CustomerEvent Added with time: "
+						<< event->getEventTime() << " EventQueue size: "
+						<< Bank->getQueueSize() << std::endl;
 				//Increment num of generated customers
 				custGenerated++;
 
 			}
 		}
-
+		//If there are events to process
+		if (Bank->getQueueSize() > 0) {
+			//Compute the head
+			Bank->removeEvent();
+			//Check if there are any recently added customers
+			for (unsigned int i = 0; i < Bank->tellers.size(); i++) {
+				if (Bank->tellers.at(i)->getNextCustomer() != nullptr) {
+					Bank->addEvent(new TellerEvent(currentTime));
+				}
+			}
+		}
 		currentTime++;
 	}
-	Bank->printEventQueue();
-	Bank->removeEvent();
-	Bank->printTellerQueues();
-	Bank->removeEvent();
-	std::cout<<"\n\n";
-	Bank->printTellerQueues();
 	std::cout << "Simulation Ending!" << std::endl;
 	std::cout << "Program Finished" << std::endl;
 	return 0;
