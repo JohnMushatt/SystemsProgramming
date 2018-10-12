@@ -13,7 +13,7 @@ class Customer;
 class Teller;
 class TellerQueue {
 public:
-	TellerQueue();
+	TellerQueue(Teller *teller,int num);
 	virtual ~TellerQueue();
 	Customer *processCustomer();
 	bool addCustomer(Customer *customer);
@@ -21,7 +21,9 @@ public:
 	void printQueue();
 	Customer *getNextCustomer();
 	int getQueueSize();
+	bool readyToProcess();
 	Teller *teller;
+	int tellerNum;
 private:
 	Customer *head;
 	Customer *tail;

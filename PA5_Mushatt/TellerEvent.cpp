@@ -8,19 +8,17 @@
 #include "TellerEvent.h"
 
 TellerEvent::TellerEvent(int time):Event(time) {
-	// TODO Auto-generated constructor stub
-
+	isTellerEvent=true;
 }
-void TellerEvent::action(TellerQueue *tQueue) {
+Event *TellerEvent::action(TellerQueue *tQueue) {
 	//If there are customers to process
-	if(tQueue->getNextCustomer()!=nullptr) {
-		tQueue->processCustomer();
-	}
-	// If there are no more customers, go on break
-	else {
-		tQueue->teller->updateBreakStatus(tQueue);
-	}
+	if(tQueue->readyToProcess()) {
 
+		tQueue->processCustomer();
+		std::cout<<"Processing TellerEvent for teller "<<tQueue->tellerNum<<"!\n"<<std::endl;
+
+	}
+	return nullptr;
 }
 TellerEvent::~TellerEvent() {
 	// TODO Auto-generated destructor stub

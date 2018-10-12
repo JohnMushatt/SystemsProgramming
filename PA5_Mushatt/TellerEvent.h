@@ -13,7 +13,7 @@
 class TellerEvent: public Event {
 public:
 	TellerEvent(int time);
-	void action(TellerQueue *tQueue);
+	Event *action(TellerQueue *tQueue);
 	virtual ~TellerEvent();
 };
 

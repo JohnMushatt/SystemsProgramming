@@ -10,10 +10,11 @@
 
 #include "Event.h"
 #include "Customer.h"
+#include "TellerEvent.h"
 class CustomerEvent: public Event {
 public:
 	CustomerEvent(int time);
-	void action(TellerQueue *tQueue);
+	Event *action(TellerQueue *tQueue);
 	virtual ~CustomerEvent();
 private:
 };

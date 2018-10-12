@@ -22,6 +22,9 @@ Customer::Customer(int time) {
 void Customer::setNextCustomer(Customer *cust) {
 	nextCustomer = cust;
 }
+int Customer::getEndTime() {
+	return endTime;
+}
 void Customer::setEndTime(int time) {
 	endTime = time;
 }

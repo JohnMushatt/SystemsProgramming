@@ -8,10 +8,12 @@
 #include "TellerQueue.h"
 #include "Customer.h"
 #include <iostream>
-TellerQueue::TellerQueue() {
+TellerQueue::TellerQueue(Teller *teller,int num) {
 	head = nullptr;
 	tail = nullptr;
 	size = 0;
+	this->teller=teller;
+	tellerNum=num;
 }
 
 /**
@@ -29,7 +31,6 @@ Customer *TellerQueue::getNextCustomer() {
  * @return Pointer to next customer
  */
 Customer *TellerQueue::processCustomer() {
-	std::cout << "\nProcessing Customer" << std::endl;
 	//if queue is more than 0
 	if (size > 0) {
 		//Set temp to next customer
@@ -40,6 +41,8 @@ Customer *TellerQueue::processCustomer() {
 			head = nullptr;
 			tail = nullptr;
 			size--;
+			teller->processing=true;
+
 			return customer;
 		}
 		//Set head to the next in queue
@@ -47,13 +50,22 @@ Customer *TellerQueue::processCustomer() {
 			head = head->nextCustomer;
 			//Reduce size of queue
 			size--;
+			teller->processing=true;
 			return customer;
 		}
 	}
+	teller->updateBreakStatus(this);
 	//If empty queue return nullptr
 	return nullptr;
 }
-
+bool TellerQueue::readyToProcess() {
+	if((teller->onBreak==false) and (this->size!=0)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 /**
  * Add customer to queue
  * @param *customer Pointer to customer

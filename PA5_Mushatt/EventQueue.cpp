@@ -9,13 +9,13 @@
 #include "Event.h"
 #include <iostream>
 EventQueue::EventQueue(int nTellers) {
-	// TODO Auto-generated constructor stub
 	head = nullptr;
 	tail = nullptr;
 	size = 0;
 	lastQueueUsed = -1;
 	for (int i = 0; i < nTellers; i++) {
-		this->tellers.push_back(new TellerQueue());
+		Teller *teller = new Teller();
+		this->tellers.push_back(new TellerQueue(teller, i));
 	}
 
 }
@@ -54,9 +54,11 @@ void EventQueue::printEventQueue() {
  *
  */
 void EventQueue::printTellerQueues() {
+	std::cout << "========= UPDATED TELLER QUEUES =========" << std::endl;
 	for (unsigned int i = 0; i < tellers.size(); i++) {
 		std::cout << "Teller #: " << i << " ";
 		tellers.at(i)->printQueue();
+		std::cout << std::endl;
 	}
 }
 /**
@@ -114,17 +116,41 @@ Event *EventQueue::removeEvent() {
 						< tellers.at(tellerIndex)->getQueueSize()) {
 					//New smallest queue index
 					tellerIndex = i;
-					tQueue= tellers.at(tellerIndex);
+					tQueue = tellers.at(tellerIndex);
 					allSame = false;
 				}
 			}
-			if(allSame==tellers.size()) {
-				event->action(tellers.at(rand() % (tellers.size())));
+			//If all teller queues are the same size
+			if (allSame == tellers.size()) {
+				//Choose a random queue to add to
+				tellerIndex = rand() % (tellers.size());
+				tQueue = tellers.at(tellerIndex);
+				//Set a temporary event to hold the return of the event action
+				//If we returned a TellerEvent, add the tellerEvent back to the eventqueue
+				if (event->isTellerEvent == true) {
+					event->action(tQueue);
+
+				} else {
+					this->addEvent(event->action(tQueue));
+				}
+				//Delete old customerEvent
 				delete event;
 			}
+			//Else there is a smallest queue that we can choose from
 			else {
-				event->action(tQueue);
+				//If we returned a TellerEvent, add the tellerEvent back to the eventqueue
+				if (event->isTellerEvent == true) {
+					tQueue = tellers.at(tellerIndex);
+					event->action(tQueue);
+
+				} else if(event->isTellerEvent==false){
+					tQueue = tellers.at(tellerIndex);
+
+					this->addEvent(event->action(tQueue));
+				}
+				//Delete old customerEvent
 				delete event;
+
 			}
 		}
 	}

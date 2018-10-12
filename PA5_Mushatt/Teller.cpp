@@ -10,6 +10,7 @@
 Teller::Teller() {
 	setIdleTime();
 	onBreak=false;
+	processing=false;
 
 }
 /**

@@ -9,6 +9,7 @@
 #define EVENT_H_
 #include "Actor.h"
 #include "TellerQueue.h"
+#include <iostream>
 class Actor;
 class Event {
 public:
@@ -16,7 +17,8 @@ public:
 	virtual ~Event();
 	Event *nextEvent;
 	int getEventTime();
-	void virtual action(TellerQueue *line) = 0;
+	Event virtual *action(TellerQueue *line) = 0;
+	bool isTellerEvent;
 	int time;
 
 private:

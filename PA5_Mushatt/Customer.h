@@ -17,6 +17,7 @@ public:
 	int getTime();
 	void setNextCustomer(Customer *cust);
 	Customer *nextCustomer;
+	int getEndTime();
 private:
 	int startTime;
 	int endTime;

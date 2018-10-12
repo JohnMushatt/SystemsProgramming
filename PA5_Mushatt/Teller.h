@@ -13,7 +13,7 @@ class Teller {
 public:
 	Teller();
 	virtual ~Teller();
-	bool onBreak;
+	bool onBreak,processing;
 	void updateBreakStatus(TellerQueue *line);
 	int getIdleTime();
 private:

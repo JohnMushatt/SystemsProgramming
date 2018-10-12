@@ -58,17 +58,20 @@ int main(int argc, char **argv) {
 			}
 		}
 		//If there are events to process
-		if (Bank->getQueueSize() > 0) {
+		while(Bank->getQueueSize() > 0) {
 			//Compute the head
+			Event *currentEvent = Bank->getHead();
+
+			//If the sim is currently at the correct time
+			//if (currentEvent->getEventTime() == currentTime) {
 			Bank->removeEvent();
-			//Check if there are any recently added customers
-			for (unsigned int i = 0; i < Bank->tellers.size(); i++) {
-				if (Bank->tellers.at(i)->getNextCustomer() != nullptr) {
-					Bank->addEvent(new TellerEvent(currentTime));
-				}
-			}
+			Bank->printTellerQueues();
+			std::cout << "\n";
+			//}
+			//currentTime++;
 		}
 		currentTime++;
+
 	}
 	std::cout << "Simulation Ending!" << std::endl;
 	std::cout << "Program Finished" << std::endl;
