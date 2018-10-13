@@ -1,0 +1,155 @@
+\section{Event Class Reference}
+\label{classEvent}\index{Event@{Event}}
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+Inheritance diagram for Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Event} ()
+\item 
+virtual \textbf{ $\sim$\+Event} ()
+\item 
+virtual float \textbf{ get\+Time} ()
+\item 
+virtual void \textbf{ action} (float current\+Time, \textbf{ Teller\+Queue} $\ast$$\ast$queues, int num\+Tellers, \textbf{ Event\+Queue} $\ast$simulation\+Queue)
+\item 
+\textbf{ Event} $\ast$ \textbf{ get\+Next\+Event} ()
+\item 
+void \textbf{ set\+Next} (\textbf{ Event} $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ time}
+\item 
+\textbf{ Event} $\ast$ \textbf{ next\+Event}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classEvent_a5a40dd4708297f7031e29b39e039ae10}} 
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\subsubsection{Event()}
+{\footnotesize\ttfamily Event\+::\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for event 
+
+References next\+Event, and time.
+
+\mbox{\label{classEvent_a7704ec01ce91e673885792054214b3d2}} 
+\index{Event@{Event}!````~Event@{$\sim$\+Event}}
+\index{````~Event@{$\sim$\+Event}!Event@{Event}}
+\subsubsection{$\sim$\+Event()}
+{\footnotesize\ttfamily Event\+::$\sim$\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classEvent_aa37a026dd3cb09ab57f80b8817d0c1bc}} 
+\index{Event@{Event}!action@{action}}
+\index{action@{action}!Event@{Event}}
+\subsubsection{action()}
+{\footnotesize\ttfamily void Event\+::action (\begin{DoxyParamCaption}\item[{float}]{current\+Time,  }\item[{\textbf{ Teller\+Queue} $\ast$$\ast$}]{queues,  }\item[{int}]{num\+Tellers,  }\item[{\textbf{ Event\+Queue} $\ast$}]{simulation\+Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Action for the event, to be overriden by subclasses 
+\begin{DoxyParams}{Parameters}
+{\em current\+Time} & Current sim time \\
+\hline
+{\em queues} & \doxyref{Teller}{p.}{classTeller} queues \\
+\hline
+{\em num\+Tellers} & \# of tellers \\
+\hline
+{\em simulation\+Queue} & \doxyref{Event}{p.}{classEvent} Queue \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \textbf{ Teller\+Event} \doxyref{}{p.}{classTellerEvent_a718d62796e9e8cda1f6b44e2001416ba}, and \textbf{ Customer\+Event} \doxyref{}{p.}{classCustomerEvent_a4b065700b1edb402328a4328ed4b7ea2}.
+
+\mbox{\label{classEvent_a72121dab5e403605b1f0e0f82ca375f9}} 
+\index{Event@{Event}!get\+Next\+Event@{get\+Next\+Event}}
+\index{get\+Next\+Event@{get\+Next\+Event}!Event@{Event}}
+\subsubsection{get\+Next\+Event()}
+{\footnotesize\ttfamily \textbf{ Event} $\ast$ Event\+::get\+Next\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve the next event \begin{DoxyReturn}{Returns}
+The next event 
+\end{DoxyReturn}
+
+
+References next\+Event.
+
+\mbox{\label{classEvent_af56f6b60a3c1ce8d954e13ce4ad54dc2}} 
+\index{Event@{Event}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Event@{Event}}
+\subsubsection{get\+Time()}
+{\footnotesize\ttfamily float Event\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Retrieve time for the event \begin{DoxyReturn}{Returns}
+time of the event 
+\end{DoxyReturn}
+
+
+Reimplemented in \textbf{ Teller\+Event} \doxyref{}{p.}{classTellerEvent_a9d00862b1033b7f11616071e8294d97b}, and \textbf{ Customer\+Event} \doxyref{}{p.}{classCustomerEvent_acfcd323cd02d825bc0095a07947cf10b}.
+
+
+
+References time.
+
+
+
+Referenced by Compare\+Event\+Time\+::operator()(), and run\+Sim().
+
+\mbox{\label{classEvent_afe191087bacd061d2f8e4620b4442609}} 
+\index{Event@{Event}!set\+Next@{set\+Next}}
+\index{set\+Next@{set\+Next}!Event@{Event}}
+\subsubsection{set\+Next()}
+{\footnotesize\ttfamily void Event\+::set\+Next (\begin{DoxyParamCaption}\item[{\textbf{ Event} $\ast$}]{event }\end{DoxyParamCaption})}
+
+Set the next event for the current event 
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to event to update to \\
+\hline
+\end{DoxyParams}
+
+
+References next\+Event.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classEvent_ad4703fce68801b81600587e72385e3ab}} 
+\index{Event@{Event}!next\+Event@{next\+Event}}
+\index{next\+Event@{next\+Event}!Event@{Event}}
+\subsubsection{next\+Event}
+{\footnotesize\ttfamily \textbf{ Event}$\ast$ Event\+::next\+Event\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by Event(), get\+Next\+Event(), and set\+Next().
+
+\mbox{\label{classEvent_a5b2142bf788396f92f36cb596b7c1e3c}} 
+\index{Event@{Event}!time@{time}}
+\index{time@{time}!Event@{Event}}
+\subsubsection{time}
+{\footnotesize\ttfamily float Event\+::time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by Event(), and get\+Time().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Event.\+h}\item 
+\textbf{ Event.\+cpp}\end{DoxyCompactItemize}

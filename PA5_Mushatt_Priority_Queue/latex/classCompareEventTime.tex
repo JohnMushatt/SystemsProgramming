@@ -1,0 +1,32 @@
+\section{Compare\+Event\+Time Class Reference}
+\label{classCompareEventTime}\index{Compare\+Event\+Time@{Compare\+Event\+Time}}
+
+
+{\ttfamily \#include $<$Event\+Queue.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ operator()} (\textbf{ Event} $\ast$e1, \textbf{ Event} $\ast$e2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Priority Queue implementation of \doxyref{Event\+Queue}{p.}{classEventQueue} 
+
+\subsection{Member Function Documentation}
+\mbox{\label{classCompareEventTime_a6bda4edcedb11a27a1e298c22358c462}} 
+\index{Compare\+Event\+Time@{Compare\+Event\+Time}!operator()@{operator()}}
+\index{operator()@{operator()}!Compare\+Event\+Time@{Compare\+Event\+Time}}
+\subsubsection{operator()()}
+{\footnotesize\ttfamily bool Compare\+Event\+Time\+::operator() (\begin{DoxyParamCaption}\item[{\textbf{ Event} $\ast$}]{e1,  }\item[{\textbf{ Event} $\ast$}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overriding the operator for the priority queue to return true if e1 is greater than e2 
+
+References Event\+::get\+Time().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Event\+Queue.\+h}\end{DoxyCompactItemize}

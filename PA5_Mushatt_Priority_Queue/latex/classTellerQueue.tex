@@ -1,0 +1,154 @@
+\section{Teller\+Queue Class Reference}
+\label{classTellerQueue}\index{Teller\+Queue@{Teller\+Queue}}
+
+
+{\ttfamily \#include $<$Teller\+Queue.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller\+Queue} ()
+\item 
+virtual \textbf{ $\sim$\+Teller\+Queue} ()
+\item 
+void \textbf{ add\+Customer} (\textbf{ Customer} $\ast$customer)
+\item 
+\textbf{ Customer} $\ast$ \textbf{ get\+Head} ()
+\item 
+int \textbf{ get\+Queue\+Size} ()
+\item 
+void \textbf{ remove\+Customer} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Customer} $\ast$ \textbf{ head}
+\item 
+int \textbf{ size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTellerQueue_a11d0c867f834ac7a2215013cea9d68fe}} 
+\index{Teller\+Queue@{Teller\+Queue}!Teller\+Queue@{Teller\+Queue}}
+\index{Teller\+Queue@{Teller\+Queue}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{Teller\+Queue()}
+{\footnotesize\ttfamily Teller\+Queue\+::\+Teller\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+References head, and size.
+
+\mbox{\label{classTellerQueue_a6370bd57b6ecf0b8e206afb741d847a9}} 
+\index{Teller\+Queue@{Teller\+Queue}!````~Teller\+Queue@{$\sim$\+Teller\+Queue}}
+\index{````~Teller\+Queue@{$\sim$\+Teller\+Queue}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{$\sim$\+Teller\+Queue()}
+{\footnotesize\ttfamily Teller\+Queue\+::$\sim$\+Teller\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classTellerQueue_af4486f1ad34b547085f03bc12dbbe66d}} 
+\index{Teller\+Queue@{Teller\+Queue}!add\+Customer@{add\+Customer}}
+\index{add\+Customer@{add\+Customer}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{add\+Customer()}
+{\footnotesize\ttfamily void Teller\+Queue\+::add\+Customer (\begin{DoxyParamCaption}\item[{\textbf{ Customer} $\ast$}]{customer }\end{DoxyParamCaption})}
+
+Add customer to queue 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$customer} & Pointer to customer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if added, false if not 
+\end{DoxyReturn}
+
+
+References head, Customer\+::next\+Customer, Customer\+::set\+Next\+Customer(), and size.
+
+
+
+Referenced by Customer\+Event\+::action().
+
+\mbox{\label{classTellerQueue_aeb00c26036f427f1229af3a97da53553}} 
+\index{Teller\+Queue@{Teller\+Queue}!get\+Head@{get\+Head}}
+\index{get\+Head@{get\+Head}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{get\+Head()}
+{\footnotesize\ttfamily \textbf{ Customer} $\ast$ Teller\+Queue\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns customer at the beginning of the line \begin{DoxyReturn}{Returns}
+Pointer to 1st in line customer 
+\end{DoxyReturn}
+
+
+References head.
+
+
+
+Referenced by Teller\+Event\+::action(), Teller\+Event\+::check\+Other\+Queues(), and Teller\+::update\+Break\+Status().
+
+\mbox{\label{classTellerQueue_a0e485ce24683a195a6a11cb60a4768cd}} 
+\index{Teller\+Queue@{Teller\+Queue}!get\+Queue\+Size@{get\+Queue\+Size}}
+\index{get\+Queue\+Size@{get\+Queue\+Size}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{get\+Queue\+Size()}
+{\footnotesize\ttfamily int Teller\+Queue\+::get\+Queue\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the last customer in the queue \begin{DoxyReturn}{Returns}
+Pointer to last customer Returns size of teller queue 
+
+Size of queue 
+\end{DoxyReturn}
+
+
+References size.
+
+
+
+Referenced by Teller\+Event\+::action(), Teller\+Event\+::check\+Other\+Queues(), and Customer\+Event\+::find\+Shortest\+Line().
+
+\mbox{\label{classTellerQueue_a5b434bf3e228ea742d21bdbed256d20e}} 
+\index{Teller\+Queue@{Teller\+Queue}!remove\+Customer@{remove\+Customer}}
+\index{remove\+Customer@{remove\+Customer}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{remove\+Customer()}
+{\footnotesize\ttfamily void Teller\+Queue\+::remove\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Remove and return the next customer \begin{DoxyReturn}{Returns}
+Pointer to next customer 
+\end{DoxyReturn}
+
+
+References Customer\+::get\+Next\+Customer(), head, and size.
+
+
+
+Referenced by Teller\+Event\+::action(), and Teller\+Event\+::check\+Other\+Queues().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classTellerQueue_a223a937050c144ecf0a13ac16dbce3f6}} 
+\index{Teller\+Queue@{Teller\+Queue}!head@{head}}
+\index{head@{head}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{head}
+{\footnotesize\ttfamily \textbf{ Customer}$\ast$ Teller\+Queue\+::head\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by add\+Customer(), get\+Head(), remove\+Customer(), and Teller\+Queue().
+
+\mbox{\label{classTellerQueue_a9773faab8e4c6cf4fb55602acaac7b6d}} 
+\index{Teller\+Queue@{Teller\+Queue}!size@{size}}
+\index{size@{size}!Teller\+Queue@{Teller\+Queue}}
+\subsubsection{size}
+{\footnotesize\ttfamily int Teller\+Queue\+::size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by add\+Customer(), get\+Queue\+Size(), remove\+Customer(), and Teller\+Queue().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller\+Queue.\+h}\item 
+\textbf{ Teller\+Queue.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,138 @@
+\section{Event\+Queue Class Reference}
+\label{classEventQueue}\index{Event\+Queue@{Event\+Queue}}
+
+
+{\ttfamily \#include $<$Event\+Queue.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Event\+Queue} ()
+\item 
+virtual \textbf{ $\sim$\+Event\+Queue} ()
+\item 
+\textbf{ Event} $\ast$ \textbf{ get\+Head} ()
+\item 
+void \textbf{ remove\+Event} ()
+\item 
+void \textbf{ add\+Event} (\textbf{ Event} $\ast$event)
+\item 
+int \textbf{ get\+Queue\+Size} ()
+\item 
+\textbf{ Event} $\ast$ \textbf{ get\+Event\+At} (int index)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::priority\+\_\+queue$<$ \textbf{ Event} $\ast$, std\+::vector$<$ \textbf{ Event} $\ast$ $>$, \textbf{ Compare\+Event\+Time} $>$ \textbf{ p\+Queue}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classEventQueue_ab7de5a41befc94aac0f461391e67f14a}} 
+\index{Event\+Queue@{Event\+Queue}!Event\+Queue@{Event\+Queue}}
+\index{Event\+Queue@{Event\+Queue}!Event\+Queue@{Event\+Queue}}
+\subsubsection{Event\+Queue()}
+{\footnotesize\ttfamily Event\+Queue\+::\+Event\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor, set head to nullptr and size to 0 \mbox{\label{classEventQueue_ac57db8e2366f2c6c594e6afc975e3b59}} 
+\index{Event\+Queue@{Event\+Queue}!````~Event\+Queue@{$\sim$\+Event\+Queue}}
+\index{````~Event\+Queue@{$\sim$\+Event\+Queue}!Event\+Queue@{Event\+Queue}}
+\subsubsection{$\sim$\+Event\+Queue()}
+{\footnotesize\ttfamily Event\+Queue\+::$\sim$\+Event\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classEventQueue_a55e0d159086c702174a66e18dea05b78}} 
+\index{Event\+Queue@{Event\+Queue}!add\+Event@{add\+Event}}
+\index{add\+Event@{add\+Event}!Event\+Queue@{Event\+Queue}}
+\subsubsection{add\+Event()}
+{\footnotesize\ttfamily void Event\+Queue\+::add\+Event (\begin{DoxyParamCaption}\item[{\textbf{ Event} $\ast$}]{event }\end{DoxyParamCaption})}
+
+Add event to the queue 
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to event to add \\
+\hline
+\end{DoxyParams}
+
+
+References p\+Queue.
+
+
+
+Referenced by Teller\+Event\+::action(), and main().
+
+\mbox{\label{classEventQueue_ab825fbc68ac03236a8c88c024ee6f81d}} 
+\index{Event\+Queue@{Event\+Queue}!get\+Event\+At@{get\+Event\+At}}
+\index{get\+Event\+At@{get\+Event\+At}!Event\+Queue@{Event\+Queue}}
+\subsubsection{get\+Event\+At()}
+{\footnotesize\ttfamily \textbf{ Event}$\ast$ Event\+Queue\+::get\+Event\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\label{classEventQueue_a22247fa958f0f7c59c6efa4221cec086}} 
+\index{Event\+Queue@{Event\+Queue}!get\+Head@{get\+Head}}
+\index{get\+Head@{get\+Head}!Event\+Queue@{Event\+Queue}}
+\subsubsection{get\+Head()}
+{\footnotesize\ttfamily \textbf{ Event} $\ast$ Event\+Queue\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve the head of the event queue \begin{DoxyReturn}{Returns}
+head/1st of event queue 
+\end{DoxyReturn}
+
+
+References p\+Queue.
+
+
+
+Referenced by run\+Sim().
+
+\mbox{\label{classEventQueue_a1657a805dc38663bbdca6996f1f75ec0}} 
+\index{Event\+Queue@{Event\+Queue}!get\+Queue\+Size@{get\+Queue\+Size}}
+\index{get\+Queue\+Size@{get\+Queue\+Size}!Event\+Queue@{Event\+Queue}}
+\subsubsection{get\+Queue\+Size()}
+{\footnotesize\ttfamily int Event\+Queue\+::get\+Queue\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve queue size \begin{DoxyReturn}{Returns}
+size of event queue 
+\end{DoxyReturn}
+
+
+References p\+Queue.
+
+
+
+Referenced by run\+Sim().
+
+\mbox{\label{classEventQueue_ac8b2d6de9e9275356fe893950f26a84b}} 
+\index{Event\+Queue@{Event\+Queue}!remove\+Event@{remove\+Event}}
+\index{remove\+Event@{remove\+Event}!Event\+Queue@{Event\+Queue}}
+\subsubsection{remove\+Event()}
+{\footnotesize\ttfamily void Event\+Queue\+::remove\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Remove event from the event queue 
+
+References p\+Queue.
+
+
+
+Referenced by Customer\+Event\+::action(), and Teller\+Event\+::action().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classEventQueue_a89681bfba67cfbdb7678e19b9a88a3e6}} 
+\index{Event\+Queue@{Event\+Queue}!p\+Queue@{p\+Queue}}
+\index{p\+Queue@{p\+Queue}!Event\+Queue@{Event\+Queue}}
+\subsubsection{p\+Queue}
+{\footnotesize\ttfamily std\+::priority\+\_\+queue$<$\textbf{ Event} $\ast$,std\+::vector$<$\textbf{ Event} $\ast$$>$,\textbf{ Compare\+Event\+Time}$>$ Event\+Queue\+::p\+Queue}
+
+
+
+Referenced by add\+Event(), get\+Head(), get\+Queue\+Size(), and remove\+Event().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Event\+Queue.\+h}\item 
+\textbf{ Event\+Queue.\+cpp}\end{DoxyCompactItemize}

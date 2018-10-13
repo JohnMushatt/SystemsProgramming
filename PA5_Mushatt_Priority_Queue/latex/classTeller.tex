@@ -1,0 +1,157 @@
+\section{Teller Class Reference}
+\label{classTeller}\index{Teller@{Teller}}
+
+
+{\ttfamily \#include $<$Teller.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller} (int num)
+\item 
+virtual \textbf{ $\sim$\+Teller} ()
+\item 
+void \textbf{ update\+Break\+Status} (\textbf{ Teller\+Queue} $\ast$line)
+\item 
+int \textbf{ get\+Idle\+Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ on\+Break}
+\item 
+bool \textbf{ processing}
+\item 
+int \textbf{ teller\+Num}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+Idle\+Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \textbf{ idle\+Time\+Const} = 600
+\item 
+int \textbf{ idle\+Time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTeller_a2ccfea7e98471237ffdc68687cf38970}} 
+\index{Teller@{Teller}!Teller@{Teller}}
+\index{Teller@{Teller}!Teller@{Teller}}
+\subsubsection{Teller()}
+{\footnotesize\ttfamily Teller\+::\+Teller (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+References on\+Break, processing, set\+Idle\+Time(), and teller\+Num.
+
+\mbox{\label{classTeller_af61263c98d7ff236ca84ec551919d7e7}} 
+\index{Teller@{Teller}!````~Teller@{$\sim$\+Teller}}
+\index{````~Teller@{$\sim$\+Teller}!Teller@{Teller}}
+\subsubsection{$\sim$\+Teller()}
+{\footnotesize\ttfamily Teller\+::$\sim$\+Teller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classTeller_a4882535d0d135ba1ae02d83dce94b154}} 
+\index{Teller@{Teller}!get\+Idle\+Time@{get\+Idle\+Time}}
+\index{get\+Idle\+Time@{get\+Idle\+Time}!Teller@{Teller}}
+\subsubsection{get\+Idle\+Time()}
+{\footnotesize\ttfamily int Teller\+::get\+Idle\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns idle time of teller \begin{DoxyReturn}{Returns}
+Time to idlek 
+\end{DoxyReturn}
+
+
+References idle\+Time.
+
+\mbox{\label{classTeller_a680268b558b302851143234261b33ac7}} 
+\index{Teller@{Teller}!set\+Idle\+Time@{set\+Idle\+Time}}
+\index{set\+Idle\+Time@{set\+Idle\+Time}!Teller@{Teller}}
+\subsubsection{set\+Idle\+Time()}
+{\footnotesize\ttfamily void Teller\+::set\+Idle\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Sets idle time of teller 
+
+References idle\+Time.
+
+
+
+Referenced by Teller().
+
+\mbox{\label{classTeller_ac2631da9a56456deb4a91a1a78b3cd1e}} 
+\index{Teller@{Teller}!update\+Break\+Status@{update\+Break\+Status}}
+\index{update\+Break\+Status@{update\+Break\+Status}!Teller@{Teller}}
+\subsubsection{update\+Break\+Status()}
+{\footnotesize\ttfamily void Teller\+::update\+Break\+Status (\begin{DoxyParamCaption}\item[{\textbf{ Teller\+Queue} $\ast$}]{line }\end{DoxyParamCaption})}
+
+Check if the teller has any customers in some queue before changing idle status 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$line} & Pointer to tellerqueue \\
+\hline
+\end{DoxyParams}
+
+
+References Teller\+Queue\+::get\+Head(), and on\+Break.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classTeller_a09db98c5db957cd1937b3b5e9fa2820b}} 
+\index{Teller@{Teller}!idle\+Time@{idle\+Time}}
+\index{idle\+Time@{idle\+Time}!Teller@{Teller}}
+\subsubsection{idle\+Time}
+{\footnotesize\ttfamily int Teller\+::idle\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by get\+Idle\+Time(), and set\+Idle\+Time().
+
+\mbox{\label{classTeller_ac2dc8cb04d87147182cc565b0dbb2804}} 
+\index{Teller@{Teller}!idle\+Time\+Const@{idle\+Time\+Const}}
+\index{idle\+Time\+Const@{idle\+Time\+Const}!Teller@{Teller}}
+\subsubsection{idle\+Time\+Const}
+{\footnotesize\ttfamily const int Teller\+::idle\+Time\+Const = 600\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\label{classTeller_a5d1b1edd74ced9664cbf19dd40256a5a}} 
+\index{Teller@{Teller}!on\+Break@{on\+Break}}
+\index{on\+Break@{on\+Break}!Teller@{Teller}}
+\subsubsection{on\+Break}
+{\footnotesize\ttfamily bool Teller\+::on\+Break}
+
+
+
+Referenced by Teller(), and update\+Break\+Status().
+
+\mbox{\label{classTeller_aa32cd13ff1cbd061a9765fac2f4b5450}} 
+\index{Teller@{Teller}!processing@{processing}}
+\index{processing@{processing}!Teller@{Teller}}
+\subsubsection{processing}
+{\footnotesize\ttfamily bool Teller\+::processing}
+
+
+
+Referenced by Teller().
+
+\mbox{\label{classTeller_a41aed4c5f9440b1dcfa07420a6908f68}} 
+\index{Teller@{Teller}!teller\+Num@{teller\+Num}}
+\index{teller\+Num@{teller\+Num}!Teller@{Teller}}
+\subsubsection{teller\+Num}
+{\footnotesize\ttfamily int Teller\+::teller\+Num}
+
+
+
+Referenced by Teller().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller.\+h}\item 
+\textbf{ Teller.\+cpp}\end{DoxyCompactItemize}

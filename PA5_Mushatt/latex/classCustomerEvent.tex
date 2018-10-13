@@ -1,0 +1,268 @@
+\section{Customer\+Event Class Reference}
+\label{classCustomerEvent}\index{Customer\+Event@{Customer\+Event}}
+
+
+{\ttfamily \#include $<$Customer\+Event.\+h$>$}
+
+Inheritance diagram for Customer\+Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCustomerEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Customer\+Event} (float \textbf{ start\+Time})
+\item 
+virtual \textbf{ $\sim$\+Customer\+Event} ()
+\item 
+void \textbf{ action} (float current\+Time, \textbf{ Teller\+Queue} $\ast$$\ast$queues, int num\+Tellers, \textbf{ Event\+Queue} $\ast$simulation\+Queue)
+\item 
+float \textbf{ get\+Time} ()
+\item 
+void \textbf{ set\+Service} ()
+\item 
+void \textbf{ set\+Time} (float t)
+\item 
+bool \textbf{ get\+Servicing} ()
+\item 
+int \textbf{ get\+End\+Time} ()
+\item 
+int \textbf{ get\+Start\+Time} ()
+\item 
+\textbf{ Teller\+Queue} $\ast$ \textbf{ find\+Shortest\+Line} (\textbf{ Teller\+Queue} $\ast$$\ast$q, int num\+Tellers)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ start\+Time}
+\item 
+float \textbf{ time}
+\item 
+float \textbf{ end\+Time}
+\item 
+bool \textbf{ receiving\+Service}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classCustomerEvent_aa300aafafb36b5bf46de53cb6ac534ff}} 
+\index{Customer\+Event@{Customer\+Event}!Customer\+Event@{Customer\+Event}}
+\index{Customer\+Event@{Customer\+Event}!Customer\+Event@{Customer\+Event}}
+\subsubsection{Customer\+Event()}
+{\footnotesize\ttfamily Customer\+Event\+::\+Customer\+Event (\begin{DoxyParamCaption}\item[{float}]{beginning\+Time }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em beginning\+Time} & Start time for the event \\
+\hline
+\end{DoxyParams}
+
+
+References end\+Time, receiving\+Service, start\+Time, and time.
+
+\mbox{\label{classCustomerEvent_ab437d164de7f6b27545e6b8c282037a6}} 
+\index{Customer\+Event@{Customer\+Event}!````~Customer\+Event@{$\sim$\+Customer\+Event}}
+\index{````~Customer\+Event@{$\sim$\+Customer\+Event}!Customer\+Event@{Customer\+Event}}
+\subsubsection{$\sim$\+Customer\+Event()}
+{\footnotesize\ttfamily Customer\+Event\+::$\sim$\+Customer\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classCustomerEvent_a4b065700b1edb402328a4328ed4b7ea2}} 
+\index{Customer\+Event@{Customer\+Event}!action@{action}}
+\index{action@{action}!Customer\+Event@{Customer\+Event}}
+\subsubsection{action()}
+{\footnotesize\ttfamily void Customer\+Event\+::action (\begin{DoxyParamCaption}\item[{float}]{current\+Time,  }\item[{\textbf{ Teller\+Queue} $\ast$$\ast$}]{queues,  }\item[{int}]{num\+Tellers,  }\item[{\textbf{ Event\+Queue} $\ast$}]{simulation\+Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+The action to be called on by the \doxyref{Event}{p.}{classEvent} Queue 
+\begin{DoxyParams}{Parameters}
+{\em current\+Time} & time to update end\+Time \\
+\hline
+{\em queues} & \doxyref{Teller}{p.}{classTeller} queues to check/use \\
+\hline
+{\em num\+Tellers} & \# of teller queues \\
+\hline
+{\em simulation\+Queue} & \doxyref{Event}{p.}{classEvent} Queue to update for action \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \textbf{ Event} \doxyref{}{p.}{classEvent_aa37a026dd3cb09ab57f80b8817d0c1bc}.
+
+
+
+References Teller\+Queue\+::add\+Customer(), end\+Time, find\+Shortest\+Line(), receiving\+Service, and Event\+Queue\+::remove\+Event().
+
+\mbox{\label{classCustomerEvent_a7acf9da15cfade2cfd1cf3d1d8719f2e}} 
+\index{Customer\+Event@{Customer\+Event}!find\+Shortest\+Line@{find\+Shortest\+Line}}
+\index{find\+Shortest\+Line@{find\+Shortest\+Line}!Customer\+Event@{Customer\+Event}}
+\subsubsection{find\+Shortest\+Line()}
+{\footnotesize\ttfamily \textbf{ Teller\+Queue} $\ast$ Customer\+Event\+::find\+Shortest\+Line (\begin{DoxyParamCaption}\item[{\textbf{ Teller\+Queue} $\ast$$\ast$}]{lines,  }\item[{int}]{num\+Lines }\end{DoxyParamCaption})}
+
+Retrieve the shortest line amongt a 2d array of tellerqueues 
+\begin{DoxyParams}{Parameters}
+{\em lines} & Pointer to teller queues \\
+\hline
+{\em num\+Lines} & \# of teller queues \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The shortest line 
+\end{DoxyReturn}
+
+
+References Teller\+Queue\+::get\+Queue\+Size().
+
+
+
+Referenced by action().
+
+\mbox{\label{classCustomerEvent_a86f2e7ca538c0a989b5c314c0e5e8be0}} 
+\index{Customer\+Event@{Customer\+Event}!get\+End\+Time@{get\+End\+Time}}
+\index{get\+End\+Time@{get\+End\+Time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{get\+End\+Time()}
+{\footnotesize\ttfamily int Customer\+Event\+::get\+End\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve end time \begin{DoxyReturn}{Returns}
+end time for the event 
+\end{DoxyReturn}
+
+
+References end\+Time.
+
+
+
+Referenced by run\+Sim().
+
+\mbox{\label{classCustomerEvent_aeeaa7c12449ac5074797d97cb0af84d8}} 
+\index{Customer\+Event@{Customer\+Event}!get\+Servicing@{get\+Servicing}}
+\index{get\+Servicing@{get\+Servicing}!Customer\+Event@{Customer\+Event}}
+\subsubsection{get\+Servicing()}
+{\footnotesize\ttfamily bool Customer\+Event\+::get\+Servicing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve service status \begin{DoxyReturn}{Returns}
+True if processed, false if unprocessed 
+\end{DoxyReturn}
+
+
+References receiving\+Service.
+
+\mbox{\label{classCustomerEvent_aba4cde0a8f57d3b87f61cc1b011e8aa4}} 
+\index{Customer\+Event@{Customer\+Event}!get\+Start\+Time@{get\+Start\+Time}}
+\index{get\+Start\+Time@{get\+Start\+Time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{get\+Start\+Time()}
+{\footnotesize\ttfamily int Customer\+Event\+::get\+Start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve start Time \begin{DoxyReturn}{Returns}
+start time for event 
+\end{DoxyReturn}
+
+
+References start\+Time.
+
+
+
+Referenced by run\+Sim().
+
+\mbox{\label{classCustomerEvent_acfcd323cd02d825bc0095a07947cf10b}} 
+\index{Customer\+Event@{Customer\+Event}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{get\+Time()}
+{\footnotesize\ttfamily float Customer\+Event\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Retreieve event time \begin{DoxyReturn}{Returns}
+event time 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ Event} \doxyref{}{p.}{classEvent_af56f6b60a3c1ce8d954e13ce4ad54dc2}.
+
+
+
+References time.
+
+\mbox{\label{classCustomerEvent_a28a3232371c5cdea52eb4b816c1304a4}} 
+\index{Customer\+Event@{Customer\+Event}!set\+Service@{set\+Service}}
+\index{set\+Service@{set\+Service}!Customer\+Event@{Customer\+Event}}
+\subsubsection{set\+Service()}
+{\footnotesize\ttfamily void Customer\+Event\+::set\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Set whether this event has been processed by a teller 
+
+References receiving\+Service.
+
+
+
+Referenced by Teller\+Event\+::action().
+
+\mbox{\label{classCustomerEvent_a6849292c3e45902a3e22d1ccbe45f61d}} 
+\index{Customer\+Event@{Customer\+Event}!set\+Time@{set\+Time}}
+\index{set\+Time@{set\+Time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{set\+Time()}
+{\footnotesize\ttfamily void Customer\+Event\+::set\+Time (\begin{DoxyParamCaption}\item[{float}]{current\+Time }\end{DoxyParamCaption})}
+
+Update the events current time 
+\begin{DoxyParams}{Parameters}
+{\em current\+Time} & Time to update to \\
+\hline
+\end{DoxyParams}
+
+
+References time.
+
+
+
+Referenced by Teller\+Event\+::action().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classCustomerEvent_a9e6b36c6033458c706784ff2ce40ed52}} 
+\index{Customer\+Event@{Customer\+Event}!end\+Time@{end\+Time}}
+\index{end\+Time@{end\+Time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{end\+Time}
+{\footnotesize\ttfamily float Customer\+Event\+::end\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), Customer\+Event(), and get\+End\+Time().
+
+\mbox{\label{classCustomerEvent_a3c3c75c8ef27ee0d93d58496a7230fc2}} 
+\index{Customer\+Event@{Customer\+Event}!receiving\+Service@{receiving\+Service}}
+\index{receiving\+Service@{receiving\+Service}!Customer\+Event@{Customer\+Event}}
+\subsubsection{receiving\+Service}
+{\footnotesize\ttfamily bool Customer\+Event\+::receiving\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), Customer\+Event(), get\+Servicing(), and set\+Service().
+
+\mbox{\label{classCustomerEvent_a5a461d610547755fe4b7fdc27b4d9db7}} 
+\index{Customer\+Event@{Customer\+Event}!start\+Time@{start\+Time}}
+\index{start\+Time@{start\+Time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{start\+Time}
+{\footnotesize\ttfamily float Customer\+Event\+::start\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by Customer\+Event(), and get\+Start\+Time().
+
+\mbox{\label{classCustomerEvent_a896c4f12de76d072078dac50788c790b}} 
+\index{Customer\+Event@{Customer\+Event}!time@{time}}
+\index{time@{time}!Customer\+Event@{Customer\+Event}}
+\subsubsection{time}
+{\footnotesize\ttfamily float Customer\+Event\+::time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by Customer\+Event(), get\+Time(), and set\+Time().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Customer\+Event.\+h}\item 
+\textbf{ Customer\+Event.\+cpp}\end{DoxyCompactItemize}

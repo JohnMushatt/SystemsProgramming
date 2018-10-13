@@ -1,0 +1,289 @@
+\section{Teller\+Event Class Reference}
+\label{classTellerEvent}\index{Teller\+Event@{Teller\+Event}}
+
+
+{\ttfamily \#include $<$Teller\+Event.\+h$>$}
+
+Inheritance diagram for Teller\+Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTellerEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller\+Event} (float \textbf{ teller\+Service\+Time}, float \textbf{ idle\+Time}, \textbf{ Teller\+Queue} $\ast$\textbf{ queue})
+\item 
+virtual \textbf{ $\sim$\+Teller\+Event} ()
+\item 
+void \textbf{ action} (float current\+Time, \textbf{ Teller\+Queue} $\ast$$\ast$queues, int num\+Tellers, \textbf{ Event\+Queue} $\ast$simulation\+Queue)
+\item 
+\textbf{ Customer\+Event} $\ast$ \textbf{ check\+Other\+Queues} (\textbf{ Teller\+Queue} $\ast$$\ast$queues, int num\+Tellers)
+\item 
+void \textbf{ edit\+Time} (float \textbf{ time})
+\item 
+float \textbf{ get\+Time} ()
+\item 
+int \textbf{ get\+Total\+Services} ()
+\item 
+int \textbf{ get\+Total\+Idles} ()
+\item 
+float \textbf{ get\+Idle\+Time} ()
+\item 
+float \textbf{ get\+Service\+Time} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller\+Queue} $\ast$ \textbf{ queue}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ teller\+Service\+Time}
+\item 
+float \textbf{ idle\+Time}
+\item 
+float \textbf{ total\+Services}
+\item 
+float \textbf{ total\+Idles}
+\item 
+float \textbf{ time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classTellerEvent_afa7728ff240c280cf31598770f8302a7}} 
+\index{Teller\+Event@{Teller\+Event}!Teller\+Event@{Teller\+Event}}
+\index{Teller\+Event@{Teller\+Event}!Teller\+Event@{Teller\+Event}}
+\subsubsection{Teller\+Event()}
+{\footnotesize\ttfamily Teller\+Event\+::\+Teller\+Event (\begin{DoxyParamCaption}\item[{float}]{teller\+Service\+Time,  }\item[{float}]{idle\+Time,  }\item[{\textbf{ Teller\+Queue} $\ast$}]{queue }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em teller\+Service\+Time} & time it takes for a teller to service a customer \\
+\hline
+{\em idlet\+Time} & time it takes for a teller to complete 1 idle \\
+\hline
+\end{DoxyParams}
+
+
+References idle\+Time, queue, teller\+Service\+Time, time, total\+Idles, and total\+Services.
+
+\mbox{\label{classTellerEvent_ac3dc98fa3d3eb27b08872bec9f5b47ba}} 
+\index{Teller\+Event@{Teller\+Event}!````~Teller\+Event@{$\sim$\+Teller\+Event}}
+\index{````~Teller\+Event@{$\sim$\+Teller\+Event}!Teller\+Event@{Teller\+Event}}
+\subsubsection{$\sim$\+Teller\+Event()}
+{\footnotesize\ttfamily Teller\+Event\+::$\sim$\+Teller\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classTellerEvent_a718d62796e9e8cda1f6b44e2001416ba}} 
+\index{Teller\+Event@{Teller\+Event}!action@{action}}
+\index{action@{action}!Teller\+Event@{Teller\+Event}}
+\subsubsection{action()}
+{\footnotesize\ttfamily void Teller\+Event\+::action (\begin{DoxyParamCaption}\item[{float}]{current\+Time,  }\item[{\textbf{ Teller\+Queue} $\ast$$\ast$}]{queues,  }\item[{int}]{num\+Tellers,  }\item[{\textbf{ Event\+Queue} $\ast$}]{simulation\+Queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Action event for tellerevent 
+\begin{DoxyParams}{Parameters}
+{\em current\+Time} & time of the simulation \\
+\hline
+{\em queues} & \doxyref{Teller}{p.}{classTeller} queues array \\
+\hline
+{\em num\+Tellers} & \# of tellers  \doxyref{Event}{p.}{classEvent} queue \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \textbf{ Event} \doxyref{}{p.}{classEvent_aa37a026dd3cb09ab57f80b8817d0c1bc}.
+
+
+
+References Event\+Queue\+::add\+Event(), check\+Other\+Queues(), Customer\+::get\+Customer\+Event(), Teller\+Queue\+::get\+Head(), Teller\+Queue\+::get\+Queue\+Size(), get\+Service\+Time(), idle\+Time, queue, Teller\+Queue\+::remove\+Customer(), Event\+Queue\+::remove\+Event(), Customer\+Event\+::set\+Service(), Customer\+Event\+::set\+Time(), teller\+Service\+Time, time, total\+Idles, and total\+Services.
+
+\mbox{\label{classTellerEvent_a55fe2249d21ce1f2ef6b2e52083270b7}} 
+\index{Teller\+Event@{Teller\+Event}!check\+Other\+Queues@{check\+Other\+Queues}}
+\index{check\+Other\+Queues@{check\+Other\+Queues}!Teller\+Event@{Teller\+Event}}
+\subsubsection{check\+Other\+Queues()}
+{\footnotesize\ttfamily \textbf{ Customer\+Event} $\ast$ Teller\+Event\+::check\+Other\+Queues (\begin{DoxyParamCaption}\item[{\textbf{ Teller\+Queue} $\ast$$\ast$}]{queues,  }\item[{int}]{num\+Tellers }\end{DoxyParamCaption})}
+
+Check other queues if the current queue is empty 
+\begin{DoxyParams}{Parameters}
+{\em queues} & \doxyref{Teller}{p.}{classTeller} queues to check \\
+\hline
+{\em num\+Tellers} & \# of tellers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to customer event 
+\end{DoxyReturn}
+
+
+References Customer\+::get\+Customer\+Event(), Teller\+Queue\+::get\+Head(), Teller\+Queue\+::get\+Queue\+Size(), queue, and Teller\+Queue\+::remove\+Customer().
+
+
+
+Referenced by action().
+
+\mbox{\label{classTellerEvent_abb7a6a82910195122d1884abedca09a1}} 
+\index{Teller\+Event@{Teller\+Event}!edit\+Time@{edit\+Time}}
+\index{edit\+Time@{edit\+Time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{edit\+Time()}
+{\footnotesize\ttfamily void Teller\+Event\+::edit\+Time (\begin{DoxyParamCaption}\item[{float}]{time }\end{DoxyParamCaption})}
+
+\mbox{\label{classTellerEvent_a4478ad8f86e005d0aae2a59241aede1a}} 
+\index{Teller\+Event@{Teller\+Event}!get\+Idle\+Time@{get\+Idle\+Time}}
+\index{get\+Idle\+Time@{get\+Idle\+Time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{get\+Idle\+Time()}
+{\footnotesize\ttfamily float Teller\+Event\+::get\+Idle\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve idle time for the teller \begin{DoxyReturn}{Returns}
+idle time 
+\end{DoxyReturn}
+
+
+References idle\+Time.
+
+
+
+Referenced by run\+Sim().
+
+\mbox{\label{classTellerEvent_a6684e1cf78c16a0d114b215530cdc86c}} 
+\index{Teller\+Event@{Teller\+Event}!get\+Service\+Time@{get\+Service\+Time}}
+\index{get\+Service\+Time@{get\+Service\+Time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{get\+Service\+Time()}
+{\footnotesize\ttfamily float Teller\+Event\+::get\+Service\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve how long a teller services someone \begin{DoxyReturn}{Returns}
+time it takes to service 
+\end{DoxyReturn}
+
+
+References teller\+Service\+Time.
+
+
+
+Referenced by action(), and run\+Sim().
+
+\mbox{\label{classTellerEvent_a9d00862b1033b7f11616071e8294d97b}} 
+\index{Teller\+Event@{Teller\+Event}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{get\+Time()}
+{\footnotesize\ttfamily float Teller\+Event\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Retrieve event\textquotesingle{}s time \begin{DoxyReturn}{Returns}
+event\textquotesingle{}s time 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ Event} \doxyref{}{p.}{classEvent_af56f6b60a3c1ce8d954e13ce4ad54dc2}.
+
+
+
+References time.
+
+\mbox{\label{classTellerEvent_a837808b6c62196bda1986a19eddd7734}} 
+\index{Teller\+Event@{Teller\+Event}!get\+Total\+Idles@{get\+Total\+Idles}}
+\index{get\+Total\+Idles@{get\+Total\+Idles}!Teller\+Event@{Teller\+Event}}
+\subsubsection{get\+Total\+Idles()}
+{\footnotesize\ttfamily int Teller\+Event\+::get\+Total\+Idles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve the total idles of the event \begin{DoxyReturn}{Returns}
+\# of idle times 
+\end{DoxyReturn}
+
+
+References total\+Idles.
+
+
+
+Referenced by run\+Sim().
+
+\mbox{\label{classTellerEvent_adb5ac7cff026753688f578794c475b2b}} 
+\index{Teller\+Event@{Teller\+Event}!get\+Total\+Services@{get\+Total\+Services}}
+\index{get\+Total\+Services@{get\+Total\+Services}!Teller\+Event@{Teller\+Event}}
+\subsubsection{get\+Total\+Services()}
+{\footnotesize\ttfamily int Teller\+Event\+::get\+Total\+Services (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve total services \begin{DoxyReturn}{Returns}
+\# of services 
+\end{DoxyReturn}
+
+
+References total\+Services.
+
+
+
+Referenced by run\+Sim().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classTellerEvent_ab32cb050f7e5a7ceaf0698ff877d9277}} 
+\index{Teller\+Event@{Teller\+Event}!idle\+Time@{idle\+Time}}
+\index{idle\+Time@{idle\+Time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{idle\+Time}
+{\footnotesize\ttfamily float Teller\+Event\+::idle\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), get\+Idle\+Time(), and Teller\+Event().
+
+\mbox{\label{classTellerEvent_adda43c86494b23dea31b3271c14d67ab}} 
+\index{Teller\+Event@{Teller\+Event}!queue@{queue}}
+\index{queue@{queue}!Teller\+Event@{Teller\+Event}}
+\subsubsection{queue}
+{\footnotesize\ttfamily \textbf{ Teller\+Queue}$\ast$ Teller\+Event\+::queue}
+
+
+
+Referenced by action(), check\+Other\+Queues(), and Teller\+Event().
+
+\mbox{\label{classTellerEvent_a0d07d263a81a34f906a920b46cb4b984}} 
+\index{Teller\+Event@{Teller\+Event}!teller\+Service\+Time@{teller\+Service\+Time}}
+\index{teller\+Service\+Time@{teller\+Service\+Time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{teller\+Service\+Time}
+{\footnotesize\ttfamily float Teller\+Event\+::teller\+Service\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), get\+Service\+Time(), and Teller\+Event().
+
+\mbox{\label{classTellerEvent_a502a415921312941587ec63dc33bb845}} 
+\index{Teller\+Event@{Teller\+Event}!time@{time}}
+\index{time@{time}!Teller\+Event@{Teller\+Event}}
+\subsubsection{time}
+{\footnotesize\ttfamily float Teller\+Event\+::time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), get\+Time(), and Teller\+Event().
+
+\mbox{\label{classTellerEvent_a7dab21e2425d728728e631ca1d10e4f7}} 
+\index{Teller\+Event@{Teller\+Event}!total\+Idles@{total\+Idles}}
+\index{total\+Idles@{total\+Idles}!Teller\+Event@{Teller\+Event}}
+\subsubsection{total\+Idles}
+{\footnotesize\ttfamily float Teller\+Event\+::total\+Idles\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), get\+Total\+Idles(), and Teller\+Event().
+
+\mbox{\label{classTellerEvent_af1c725929cb8652e0cd946565ec8cbaf}} 
+\index{Teller\+Event@{Teller\+Event}!total\+Services@{total\+Services}}
+\index{total\+Services@{total\+Services}!Teller\+Event@{Teller\+Event}}
+\subsubsection{total\+Services}
+{\footnotesize\ttfamily float Teller\+Event\+::total\+Services\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by action(), get\+Total\+Services(), and Teller\+Event().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Teller\+Event.\+h}\item 
+\textbf{ Teller\+Event.\+cpp}\end{DoxyCompactItemize}

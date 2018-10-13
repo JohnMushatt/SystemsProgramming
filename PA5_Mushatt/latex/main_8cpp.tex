@@ -1,0 +1,60 @@
+\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include \char`\"{}Teller\+Queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Event\+Queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Customer\+Event.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Teller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Teller\+Event.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}Customer.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ run\+Sim} (float sim\+Time, \textbf{ Teller\+Event} $\ast$$\ast$teller\+Events, \textbf{ Teller\+Queue} $\ast$$\ast$queues, int num\+Customers, int num\+Tellers, \textbf{ Customer\+Event} $\ast$$\ast$customer\+Events, \textbf{ Event\+Queue} $\ast$simulation\+Queue, int which\+Sim)
+\item 
+int \textbf{ main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+References Event\+Queue\+::add\+Event(), and run\+Sim().
+
+\mbox{\label{main_8cpp_a59a51a7c85f242c19c28a0cf48b46f4a}} 
+\index{main.\+cpp@{main.\+cpp}!run\+Sim@{run\+Sim}}
+\index{run\+Sim@{run\+Sim}!main.\+cpp@{main.\+cpp}}
+\subsubsection{run\+Sim()}
+{\footnotesize\ttfamily void run\+Sim (\begin{DoxyParamCaption}\item[{float}]{sim\+Time,  }\item[{\textbf{ Teller\+Event} $\ast$$\ast$}]{teller\+Events,  }\item[{\textbf{ Teller\+Queue} $\ast$$\ast$}]{queues,  }\item[{int}]{num\+Customers,  }\item[{int}]{num\+Tellers,  }\item[{\textbf{ Customer\+Event} $\ast$$\ast$}]{customer\+Events,  }\item[{\textbf{ Event\+Queue} $\ast$}]{simulation\+Queue,  }\item[{int}]{which\+Sim }\end{DoxyParamCaption})}
+
+Run the simulation with the given arguments, one for common queue and one for multi-\/queue 
+\begin{DoxyParams}{Parameters}
+{\em sim\+Time} & Total time to run the sim \\
+\hline
+{\em teller} & 2D Events Array to hold teller\+Events from initialization phase \\
+\hline
+{\em queues} & 2D of teller queues \\
+\hline
+{\em num\+Customers} & \# of customers for the simulation \\
+\hline
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+References Customer\+Event\+::get\+End\+Time(), Event\+Queue\+::get\+Head(), Teller\+Event\+::get\+Idle\+Time(), Event\+Queue\+::get\+Queue\+Size(), Teller\+Event\+::get\+Service\+Time(), Customer\+Event\+::get\+Start\+Time(), Event\+::get\+Time(), Teller\+Event\+::get\+Total\+Idles(), and Teller\+Event\+::get\+Total\+Services().
+
+
+
+Referenced by main().
+

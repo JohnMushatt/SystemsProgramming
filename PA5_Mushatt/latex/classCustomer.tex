@@ -1,0 +1,138 @@
+\section{Customer Class Reference}
+\label{classCustomer}\index{Customer@{Customer}}
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Customer} ()
+\item 
+virtual \textbf{ $\sim$\+Customer} ()
+\item 
+\textbf{ Customer} (\textbf{ Customer\+Event} $\ast$\textbf{ event})
+\item 
+void \textbf{ set\+Next\+Customer} (\textbf{ Customer} $\ast$cust)
+\item 
+\textbf{ Customer} $\ast$ \textbf{ get\+Next\+Customer} ()
+\item 
+\textbf{ Customer\+Event} $\ast$ \textbf{ get\+Customer\+Event} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Customer} $\ast$ \textbf{ next\+Customer}
+\item 
+\textbf{ Customer\+Event} $\ast$ \textbf{ event}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\subsubsection{Customer()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classCustomer_ab93fb14683b0393b9c900109f77c2629}} 
+\index{Customer@{Customer}!````~Customer@{$\sim$\+Customer}}
+\index{````~Customer@{$\sim$\+Customer}!Customer@{Customer}}
+\subsubsection{$\sim$\+Customer()}
+{\footnotesize\ttfamily Customer\+::$\sim$\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{classCustomer_a4a0eb55dbdedb6be52d48a817a2d8f6f}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\subsubsection{Customer()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}\item[{\textbf{ Customer\+Event} $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+References event, and next\+Customer.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classCustomer_ae89a1bad867beae4d655a72eee491b32}} 
+\index{Customer@{Customer}!get\+Customer\+Event@{get\+Customer\+Event}}
+\index{get\+Customer\+Event@{get\+Customer\+Event}!Customer@{Customer}}
+\subsubsection{get\+Customer\+Event()}
+{\footnotesize\ttfamily \textbf{ Customer\+Event} $\ast$ Customer\+::get\+Customer\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves the customer\textquotesingle{}s event \begin{DoxyReturn}{Returns}
+Pointer to event 
+\end{DoxyReturn}
+
+
+References event.
+
+
+
+Referenced by Teller\+Event\+::action(), and Teller\+Event\+::check\+Other\+Queues().
+
+\mbox{\label{classCustomer_ae0e584d36211fad18ef0a99c828cec69}} 
+\index{Customer@{Customer}!get\+Next\+Customer@{get\+Next\+Customer}}
+\index{get\+Next\+Customer@{get\+Next\+Customer}!Customer@{Customer}}
+\subsubsection{get\+Next\+Customer()}
+{\footnotesize\ttfamily \textbf{ Customer} $\ast$ Customer\+::get\+Next\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve the next\+Customer \begin{DoxyReturn}{Returns}
+Pointer to the next customer 
+\end{DoxyReturn}
+
+
+References next\+Customer.
+
+
+
+Referenced by Teller\+Queue\+::remove\+Customer().
+
+\mbox{\label{classCustomer_a677e901e3693e63519f03b08c0348f20}} 
+\index{Customer@{Customer}!set\+Next\+Customer@{set\+Next\+Customer}}
+\index{set\+Next\+Customer@{set\+Next\+Customer}!Customer@{Customer}}
+\subsubsection{set\+Next\+Customer()}
+{\footnotesize\ttfamily void Customer\+::set\+Next\+Customer (\begin{DoxyParamCaption}\item[{\textbf{ Customer} $\ast$}]{cust }\end{DoxyParamCaption})}
+
+Set next\+Customer to cust 
+\begin{DoxyParams}{Parameters}
+{\em cust} & Pointer to new customer \\
+\hline
+\end{DoxyParams}
+
+
+References next\+Customer.
+
+
+
+Referenced by Teller\+Queue\+::add\+Customer().
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{classCustomer_a671c01359a83ebbe7dfa31c796a1e766}} 
+\index{Customer@{Customer}!event@{event}}
+\index{event@{event}!Customer@{Customer}}
+\subsubsection{event}
+{\footnotesize\ttfamily \textbf{ Customer\+Event}$\ast$ Customer\+::event}
+
+
+
+Referenced by Customer(), and get\+Customer\+Event().
+
+\mbox{\label{classCustomer_a754b9aeb205889acaaef4cf253940fa6}} 
+\index{Customer@{Customer}!next\+Customer@{next\+Customer}}
+\index{next\+Customer@{next\+Customer}!Customer@{Customer}}
+\subsubsection{next\+Customer}
+{\footnotesize\ttfamily \textbf{ Customer}$\ast$ Customer\+::next\+Customer}
+
+
+
+Referenced by Teller\+Queue\+::add\+Customer(), Customer(), get\+Next\+Customer(), and set\+Next\+Customer().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Customer.\+h}\item 
+\textbf{ Customer.\+cpp}\end{DoxyCompactItemize}
