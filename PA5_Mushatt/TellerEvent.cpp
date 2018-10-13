@@ -8,6 +8,11 @@
 #include "TellerEvent.h"
 #include "EventQueue.h"
 #include <iostream>
+/**
+ * Constructor
+ * @param tellerServiceTime time it takes for a teller to service a customer
+ * @param idletTime time it takes for a teller to complete 1 idle
+ */
 TellerEvent::TellerEvent(float tellerServiceTime, float idleTime,
 		TellerQueue *queue) {
 	this->tellerServiceTime = tellerServiceTime;
@@ -19,18 +24,38 @@ TellerEvent::TellerEvent(float tellerServiceTime, float idleTime,
 	totalServices = 0;
 	totalIdles = 0;
 }
+/**
+ * Retrieve  event's time
+ * @return event's time
+ */
 float TellerEvent::getTime() {
 	return time;
 }
+/**
+ * Retrieve the total idles of the event
+ * @return # of idle times
+ */
 int TellerEvent::getTotalIdles() {
 	return totalIdles;
 }
+/**
+ * Retrieve total services
+ * @return # of services
+ */
 int TellerEvent::getTotalServices() {
 	return totalServices;
 }
+/**
+ * Retrieve idle time for the teller
+ * @return idle time
+ */
 float TellerEvent::getIdleTime() {
 	return idleTime;
 }
+/**
+ * Retrieve how long a teller services someone
+ * @return time it takes to service
+ */
 float TellerEvent::getServiceTime() {
 	return tellerServiceTime;
 }
