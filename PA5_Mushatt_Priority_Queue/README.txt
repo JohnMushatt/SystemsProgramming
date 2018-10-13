@@ -18,11 +18,7 @@ a general structure that the EventQueue would interact with, these could either 
 methods using dynamic binding and thus either teller or customer actions would fire off. Customers can be interpreted as a linked-list node for the TellerQueues.
 TellerQueues act similar to the EventQueue as in they process customers by time.
 
-Results: The common teller method is slightly faster as there are more queues thus more customers processed. The only advantage the shared-line 
-produces is a slightly lower idle time meaning the productivity of each teller is slightly higher as there will almost always be a customer in the only line
-thus they will have little time to idle.
-
-
+Results: The common teller method is slightly faster as there are more queues thus 
 PProgram starting
 Simulation will run with: 100 Customer(s) 3 Teller(s) Sim Time: 3600 Seconds 2 is the average service time in seconds  0 Is the seed
 Beginning Simulation!
