@@ -6,113 +6,101 @@
  */
 
 #include "TellerQueue.h"
-#include "Customer.h"
 #include <iostream>
-TellerQueue::TellerQueue(Teller *teller,int num) {
+
+#include "Customer.h"
+TellerQueue::TellerQueue() {
 	head = nullptr;
-	tail = nullptr;
 	size = 0;
-	this->teller=teller;
-	tellerNum=num;
 }
 
 /**
  * Returns customer at the beginning of the line
  * @return Pointer to 1st in line customer
  */
-Customer *TellerQueue::getNextCustomer() {
-	if (size > 0) {
-		return head;
-	}
-	return nullptr;
+Customer *TellerQueue::getHead() {
+	return head;
 }
 /**
  * Remove and return the next customer
  * @return Pointer to next customer
  */
-Customer *TellerQueue::processCustomer() {
-	//if queue is more than 0
-	if (size > 0) {
-		//Set temp to next customer
-		Customer *customer = head;
+void TellerQueue::removeCustomer() {
+	if (size <= 1) {
+		head = nullptr;
+		size--;
+	} else {
+		Customer *cust = head;
+		head = cust->getNextCustomer();
+		size--;
+	}
+	/*
+	 //Set temp to next customer
+	 Customer *customer = head;
 
-		//If only 1 person queue
-		if (size == 1) {
-			head = nullptr;
-			tail = nullptr;
-			size--;
-			teller->processing=true;
+	 //If only 1 person queue
+	 if (size == 1) {
+	 head = nullptrptr;
+	 tail = nullptrptr;
+	 size--;
+	 //teller->processing=true;
 
-			return customer;
-		}
-		//Set head to the next in queue
-		else if (customer != nullptr) {
-			head = head->nextCustomer;
-			//Reduce size of queue
-			size--;
-			teller->processing=true;
-			return customer;
-		}
-	}
-	teller->updateBreakStatus(this);
-	//If empty queue return nullptr
-	return nullptr;
+	 }
+	 //Set head to the next in queue
+	 else {
+	 head = head->nextCustomer;
+	 //Reduce size of queue
+	 size--;
+	 //teller->processing=true;
+	 }
+	 //If empty queue return nullptrptr
+
+	 */
 }
-bool TellerQueue::readyToProcess() {
-	if((teller->onBreak==false) and (this->size!=0)) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+
 /**
  * Add customer to queue
  * @param *customer Pointer to customer
  * @return True if added, false if not
  */
-bool TellerQueue::addCustomer(Customer *customer) {
-	//If queue is empty set next and last to customer and increase size
+void TellerQueue::addCustomer(Customer *customer) {
+
 	if (size == 0) {
 		head = customer;
-		tail = customer;
 		size++;
-		return true;
-	}
-	//If we have a non-empty queue update last customer and size
-	else if (size > 0) {
-		tail->setNextCustomer(customer);
-		tail = customer;
+	} else {
+		Customer *cust = head;
+		for (int i = 1; i < size; i++) {
+			cust = cust->nextCustomer;
 
+		}
+		cust->setNextCustomer(customer);
 		size++;
-		return true;
 	}
-	return false;
+	/*
+	 //If queue is empty set next and last to customer and increase size
+	 if (size == 0) {
+	 head = customer;
+	 tail=customer;
+	 size++;
+	 return true;
+	 }
+	 //If we have a non-empty queue update last customer and size
+	 else {
+	 tail->nextCustomer=customer;
+	 tail = customer;
+
+	 size++;
+	 return true;
+	 }
+	 return false;
+	 */
 }
 /**
  * Returns the last customer in the queue
  * @return Pointer to last customer
  */
-Customer *TellerQueue::getLastCustomer() {
-	if (size > 0) {
-		return tail;
-	}
-	return nullptr;
-}
-/**
- * Prints out teller queue
- */
-void TellerQueue::printQueue() {
-	int i = 0;
-	Customer *cust = head;
-	std::cout << "Teller line size: " << size << std::endl;
-	while (i < size) {
-		std::cout << "Customer position: " << i << " Time arrived: "
-				<< cust->getTime() << std::endl;
-		cust = cust->nextCustomer;
-		i++;
-	}
-}
+
 /**
  * Returns size of teller queue
  * @return Size of queue

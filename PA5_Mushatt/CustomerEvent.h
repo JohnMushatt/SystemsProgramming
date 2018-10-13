@@ -9,14 +9,23 @@
 #define CUSTOMEREVENT_H_
 
 #include "Event.h"
-#include "Customer.h"
-#include "TellerEvent.h"
-class CustomerEvent: public Event {
+#include <cstdlib>
+class CustomerEvent: public Event{
+
 public:
-	CustomerEvent(int time);
-	Event *action(TellerQueue *tQueue);
+	CustomerEvent(float startTime);
 	virtual ~CustomerEvent();
+	void action(float currentTime, TellerQueue** queues,int numTellers,EventQueue *simulationQueue);
+	float getTime();
+	void setService();
+	void setTime(float t);
+	bool getServicing();
+	int getEndTime();
+	int getStartTime();
+	TellerQueue *findShortestLine(TellerQueue** q, int numTellers);
 private:
+	float startTime,time,endTime;
+	bool receivingService;
 };
 
 #endif /* CUSTOMEREVENT_H_ */

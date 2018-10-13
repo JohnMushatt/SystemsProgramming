@@ -7,20 +7,17 @@
 
 #ifndef CUSTOMER_H_
 #define CUSTOMER_H_
-#include "Actor.h"
-class Customer:public Actor{
+#include "CustomerEvent.h"
+class Customer{
 public:
 	Customer();
 	virtual ~Customer();
-	Customer(int time);
-	void setEndTime(int time);
-	int getTime();
+	Customer(CustomerEvent *event);
 	void setNextCustomer(Customer *cust);
 	Customer *nextCustomer;
-	int getEndTime();
-private:
-	int startTime;
-	int endTime;
+	CustomerEvent *event;
+	Customer *getNextCustomer();
+	CustomerEvent *getCustomerEvent();
 };
 
 #endif /* CUSTOMER_H_ */

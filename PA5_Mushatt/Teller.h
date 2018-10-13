@@ -8,13 +8,15 @@
 #ifndef TELLER_H_
 #define TELLER_H_
 #include "TellerQueue.h"
+#include <vector>
 class TellerQueue;
 class Teller {
 public:
-	Teller();
+	Teller(int num);
 	virtual ~Teller();
 	bool onBreak,processing;
 	void updateBreakStatus(TellerQueue *line);
+	int tellerNum;
 	int getIdleTime();
 private:
 	const int idleTimeConst= 600;

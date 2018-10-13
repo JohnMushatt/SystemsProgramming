@@ -7,29 +7,32 @@
 
 #include "Customer.h"
 
-Customer::Customer() {
-	// TODO Auto-generated constructor stub
-	startTime=0;
-	endTime=0;
-	nextCustomer=nullptr;
-}
-Customer::Customer(int time) {
-	startTime= time;
-	endTime = 0;
+Customer::Customer(CustomerEvent *event) {
+	this->event=event;
 	nextCustomer=nullptr;
 
 }
+
+/**
+ * Set nextCustomer to cust
+ * @param cust Pointer to new customer
+ */
 void Customer::setNextCustomer(Customer *cust) {
 	nextCustomer = cust;
 }
-int Customer::getEndTime() {
-	return endTime;
+/**
+ * Retrieve the nextCustomer
+ * @return Pointer to the next customer
+ */
+Customer *Customer::getNextCustomer() {
+	return nextCustomer;
 }
-void Customer::setEndTime(int time) {
-	endTime = time;
-}
-int Customer::getTime() {
-	return startTime;
+/**
+ * Retrieves the customer's event
+ * @return Pointer to event
+ */
+CustomerEvent *Customer::getCustomerEvent() {
+	return event;
 }
 Customer::~Customer() {
 	// TODO Auto-generated destructor stub

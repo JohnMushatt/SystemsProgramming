@@ -7,21 +7,22 @@
 
 #ifndef EVENT_H_
 #define EVENT_H_
-#include "Actor.h"
-#include "TellerQueue.h"
-#include <iostream>
-class Actor;
+#include <vector>
+
+class EventQueue;
+class TellerQueue;
+
 class Event {
 public:
-	Event(int time);
+	Event();
 	virtual ~Event();
-	Event *nextEvent;
-	int getEventTime();
-	Event virtual *action(TellerQueue *line) = 0;
-	bool isTellerEvent;
-	int time;
-
+	virtual float getTime();
+	virtual void action(float currentTime, TellerQueue** queues,int numTellers, EventQueue *simulationQueue);
+	Event *getNextEvent();
+	void setNext(Event *event);
 private:
-};
+	float time;
+	Event *nextEvent;
 
+};
 #endif /* EVENT_H_ */

@@ -7,26 +7,20 @@
 
 #ifndef TELLERQUEUE_H_
 #define TELLERQUEUE_H_
-#include "Customer.h"
 #include "Teller.h"
-class Customer;
-class Teller;
+#include <vector>
+
+#include "Customer.h"
 class TellerQueue {
 public:
-	TellerQueue(Teller *teller,int num);
+	TellerQueue();
 	virtual ~TellerQueue();
-	Customer *processCustomer();
-	bool addCustomer(Customer *customer);
-	Customer *getLastCustomer();
-	void printQueue();
-	Customer *getNextCustomer();
+	void addCustomer(Customer *customer);
+	Customer *getHead();
 	int getQueueSize();
-	bool readyToProcess();
-	Teller *teller;
-	int tellerNum;
+	void removeCustomer();
 private:
 	Customer *head;
-	Customer *tail;
 	int size;
 };
 

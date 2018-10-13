@@ -7,12 +7,22 @@
 
 #include "Event.h"
 
-Event::Event(int time) {
+Event::Event() {
 	nextEvent=nullptr;
-	this->time = time;
+	time = -1;
 }
-int Event::getEventTime(){
+float Event::getTime() {
 	return time;
+}
+void Event::action(float currentTime, TellerQueue** queues, int numTellers,
+		EventQueue *simulationQueue) {
+
+}
+void Event::setNext(Event *event) {
+	nextEvent=event;
+}
+Event *Event::getNextEvent() {
+	return nextEvent;
 }
 Event::~Event() {
 	// TODO Auto-generated destructor stub

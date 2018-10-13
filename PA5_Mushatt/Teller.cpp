@@ -7,7 +7,8 @@
 
 #include "Teller.h"
 #include <stdlib.h>
-Teller::Teller() {
+Teller::Teller(int num) {
+	tellerNum = num;
 	setIdleTime();
 	onBreak=false;
 	processing=false;
@@ -21,7 +22,7 @@ void Teller::setIdleTime() {
 }
 /**
  * Returns idle time of teller
- * @return Time to idle
+ * @return Time to idlek
  */
 int Teller::getIdleTime(){
 	return idleTime;
@@ -31,11 +32,10 @@ int Teller::getIdleTime(){
  * @param *line Pointer to tellerqueue
  */
 void Teller::updateBreakStatus(TellerQueue *line) {
-	if(line->getNextCustomer()!=nullptr) {
+	if(line->getHead()!=nullptr) {
 		onBreak=false;
 	}
 	else {
-		onBreak = true;
 	}
 
 }
